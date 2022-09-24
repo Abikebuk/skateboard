@@ -19,6 +19,9 @@
     ],
     "rules": {
         "require-jsdoc": "off",
-        "react/react-in-jsx-scope": "off"
+        "react/react-in-jsx-scope": "off",
+        "no-unused-vars": "warn",
+        "max-len": ["warn", {"code" :  100}],
+        "react/no-unknown-property": ["off", { "ignore": [] }]
     }
 }
