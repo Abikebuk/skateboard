@@ -1,9 +1,17 @@
 import './Home.sass';
 import React, {Canvas, useFrame} from '@react-three/fiber';
 import {useRef, useState} from 'react';
+import SkateboardFull from '../assets/skateboard-full.glb';
+import {useScroll} from '@react-three/drei';
+
+
+function Skateboard(props) {
+  const scroll = useScroll();
+}
 
 function Box(props) {
   const ref = useRef();
+  const [width, height] = useThree((state) => state.viewport);
 
   const [hovered, hover] = useState(false);
   const [clicked, click] = useState(false);
@@ -28,5 +36,6 @@ export default function Home() {
     <pointLight position={[-10, -10, -10]}/>
     <Box position={[-1.2, 0, 0]}/>
     <Box position={[1.2, 0, 0]}/>
+    <Skateboard position={[0, -1, 0]}/>;
   </Canvas>;
 }
