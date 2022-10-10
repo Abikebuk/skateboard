@@ -1,6 +1,6 @@
 import './Home.sass';
 import {Canvas, useThree} from '@react-three/fiber';
-import {OrbitControls, useGLTF} from '@react-three/drei';
+import {Bounds, OrbitControls, useBounds, useGLTF} from '@react-three/drei';
 import skateboardGltf from '../assets/skateboard-full.glb';
 
 // eslint-disable-next-line react/display-name, react/prop-types
@@ -16,7 +16,9 @@ function Skateboard(props) {
 }
 function loadAll(node) {
   if (node.type === 'Object3D' && node.visible === true) {
-    return loadGroup(node);
+    return <Bounds fit clip observe damping={6} margin={1.2}>
+      {loadGroup(node)}
+    </Bounds>;
   }
   if (node.type ==='Group') {
     return loadGroup(node);
@@ -27,6 +29,8 @@ function loadAll(node) {
 }
 
 function loadMesh(node) {
+  const api = useBounds();
+
   return (
     <mesh
       key={node.name}
@@ -34,7 +38,15 @@ function loadMesh(node) {
       position={node.position}
       scale={node.scale}
       rotation={node.rotation}
-      material={node.material}>
+      material={node.material}
+      onClick={(e) => {
+        console.log(e);
+        e.stopPropagation();
+        e.delta <= 5 && api.refresh(e.object).fit();
+      }
+      }
+      onPointerMissed={(e) => e.button === 0 && api.refresh().fit()}
+    >
       {node.children.map((children) => loadAll(children))}
     </mesh>
   );
@@ -47,12 +59,12 @@ function loadGroup(node) {
       position={node.position}
       rotation={node.rotation}
       scale={node.scale}
-
     >
       {node.children.map((children) => loadAll(children))}
     </group>
   );
 }
+
 function loadSkateboardPart(node) {
   switch (node.name) {
     case 'Skateboard_Sub_assembly1':
@@ -66,11 +78,13 @@ function loadSkateboardPart(node) {
   }
 }
 
+
 export default function Home() {
   return <Canvas>
     <ambientLight/>
-    <Skateboard />
+    <Bounds fit clip observe damping={12} margin={2}>
+      <Skateboard />
+    </Bounds>
     <OrbitControls/>
   </Canvas>;
 }
-
