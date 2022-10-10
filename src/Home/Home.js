@@ -1,6 +1,6 @@
 import './Home.sass';
 import {Canvas, useThree} from '@react-three/fiber';
-import {Bounds, OrbitControls, useBounds, useGLTF} from '@react-three/drei';
+import {Bounds, ContactShadows, OrbitControls, useBounds, useGLTF} from '@react-three/drei';
 import skateboardGltf from '../assets/skateboard-full.glb';
 
 // eslint-disable-next-line react/display-name, react/prop-types
@@ -81,10 +81,15 @@ function loadSkateboardPart(node) {
 
 export default function Home() {
   return <Canvas>
-    <ambientLight/>
+    <spotLight position={[-100, -100, -100]} intensity={0.2} angle={0.3} penumbra={1} />
+    <hemisphereLight color="white" groundColor="#ffffff" position={[-7, 25, 13]} intensity={1} />
     <Bounds fit clip observe damping={12} margin={2}>
       <Skateboard />
     </Bounds>
-    <OrbitControls/>
+    <ContactShadows
+      rotation-x={Math.PI / 2} position={[0, -35, 0]}
+      opacity={0.2} width={200}
+      height={200} blur={1} far={50} />
+    <OrbitControls makeDefault minPolarAngle={0} maxPolarAngle={Math.PI / 1.75} />
   </Canvas>;
 }
