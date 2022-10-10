@@ -80,7 +80,7 @@ function loadSkateboardPart(node) {
 
 
 export default function Home() {
-  return <Canvas>
+  return <Canvas camera={{position: [0, -10, 80], fov: 50}} dpr={[1, 2]}>
     <spotLight position={[-100, -100, -100]} intensity={0.2} angle={0.3} penumbra={1} />
     <hemisphereLight color="white" groundColor="#ffffff" position={[-7, 25, 13]} intensity={1} />
     <Bounds fit clip observe damping={12} margin={2}>
