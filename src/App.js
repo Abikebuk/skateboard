@@ -1,10 +1,10 @@
 import './App.sass';
-import Home from './Home/Home';
+import Skateboard from './Skateboard/Skateboard';
 
 function App() {
   return (
     <div className="App">
-      <Home/>
+      <Skateboard/>
     </div>
   );
 }
