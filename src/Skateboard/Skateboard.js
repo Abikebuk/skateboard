@@ -1,34 +1,34 @@
-import {Canvas, useThree} from '@react-three/fiber';
-import {Bounds, ContactShadows, Float, OrbitControls, useBounds, useGLTF} from '@react-three/drei';
-import skateboardGltf from '../assets/skateboard-full.glb';
+import {Canvas, useThree} from '@react-three/fiber'
+import {Bounds, ContactShadows, Float, OrbitControls, useBounds, useGLTF} from '@react-three/drei'
+import skateboardGltf from '../assets/skateboard-full.glb'
 
 function SkateboardModel(props) {
-  const {nodes} = useGLTF(skateboardGltf);
-  const {width} = useThree((state) => state.viewport);
-  console.log(nodes);
+  const {nodes} = useGLTF(skateboardGltf)
+  const {width} = useThree((state) => state.viewport)
+  console.log(nodes)
   return (
     <group {...props} dispose={null} scale={width}>
       {Object.keys(nodes).map((k) => loadSkateboardPart(nodes[k]))}
     </group>
-  );
+  )
 }
 
 function loadAll(node) {
   if (node.type === 'Object3D' && node.visible === true) {
     return <Bounds fit clip observe damping={6} margin={1.2}>
       {loadGroup(node)}
-    </Bounds>;
+    </Bounds>
   }
   if (node.type ==='Group') {
-    return loadGroup(node);
+    return loadGroup(node)
   }
   if (node.type === 'Mesh' && node.visible === true) {
-    return loadMesh(node);
+    return loadMesh(node)
   }
 }
 
 function loadMesh(node) {
-  const api = useBounds();
+  const api = useBounds()
 
   return (
     <mesh
@@ -39,16 +39,16 @@ function loadMesh(node) {
       rotation={node.rotation}
       material={node.material}
       onClick={(e) => {
-        console.log(e);
-        e.stopPropagation();
-        e.delta <= 5 && api.refresh(e.object).fit();
+        console.log(e)
+        e.stopPropagation()
+        e.delta <= 5 && api.refresh(e.object).fit()
       }
       }
       onPointerMissed={(e) => e.button === 0 && api.refresh().fit()}
     >
       {node.children.map((children) => loadAll(children))}
     </mesh>
-  );
+  )
 }
 
 function loadGroup(node) {
@@ -61,19 +61,19 @@ function loadGroup(node) {
     >
       {node.children.map((children) => loadAll(children))}
     </group>
-  );
+  )
 }
 
 function loadSkateboardPart(node) {
   switch (node.name) {
     case 'Skateboard_Sub_assembly1':
-      return (loadAll(node.parent));
+      return (loadAll(node.parent))
     case 'Skateboard_Sub_assembly2':
-      break;
+      break
     case 'Solid1':
-      break;
+      break
     default:
-      break;
+      break
   }
 }
 
@@ -98,5 +98,5 @@ export default function Skateboard() {
       opacity={0.2} width={200}
       height={200} blur={1} far={50} />
     <OrbitControls makeDefault minPolarAngle={0} maxPolarAngle={Math.PI / 1.75} />
-  </Canvas>;
+  </Canvas>
 }

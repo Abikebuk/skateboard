@@ -1,5 +1,5 @@
-import Skateboard from '../Skateboard/Skateboard';
-import './Home.sass';
+import Skateboard from '../Skateboard/Skateboard'
+import './Home.sass'
 
 export default function Home() {
   return (
@@ -12,5 +12,5 @@ export default function Home() {
         </div>
       </div>
     </div>
-  );
+  )
 }
