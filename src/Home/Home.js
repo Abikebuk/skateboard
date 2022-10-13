@@ -1,5 +1,6 @@
 import Skateboard from '../Skateboard/Skateboard'
 import './Home.sass'
+import ProductList from '../ProductList/ProductList'
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
         <div className={'row h-100'}>
           <div id={'skateboard'} className={'col-12'}>
             <Skateboard/>
+            <ProductList/>
           </div>
         </div>
       </div>
