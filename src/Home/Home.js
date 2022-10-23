@@ -6,19 +6,19 @@ import ProductPage from '../ProductPage/ProductPage'
 export default function Home() {
   return (
     <div id={'home'}>
-      <div className={'container-fluid h-100'}>
-        <div className={'row h-100'}>
+      <div className={'container-fluid'}>
+        <div className={'row'}>
           <div id={'skateboard'} className={'col-12'}>
             <Skateboard/>
-            <ProductList/>
-            <ProductPage
-              title={'COOL SKATEBOARD'}
-              image={'/skateboard.jpg'}
-              brandLogo={'/quicksilver.png'}
-              brandDescription={'Quality products for Boardriders since 1969. Shop our latest collections, follow news & videos of our Surf & Snowboard Athletes.'}
-              description={description}
-            />
           </div>
+          <ProductList/>
+          <ProductPage
+            title={'COOL SKATEBOARD'}
+            image={'/skateboard.jpg'}
+            brandLogo={'/quicksilver.png'}
+            brandDescription={'Quality products for Boardriders since 1969. Shop our latest collections, follow news & videos of our Surf & Snowboard Athletes.'}
+            description={description}
+          />
         </div>
       </div>
     </div>

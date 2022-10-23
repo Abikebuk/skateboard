@@ -15,15 +15,17 @@ import Home from '../Home/Home';
 class First extends Component {
   render() {
     return (
-      <div>
-        <div className="scren__size">
-          <Head />
-          <Navi />
-          <Home />
-          {/* <Grid /> */}
-        </div>
-        <Foot />
-      </div>
+          <div className={'container-fluid p-0'}>
+            <div className={'row p-0 m-0'}>
+              <div className={'col-auto p-0'}>
+                <Navi />
+              </div>
+              <div id={'content'} className={'col p-0'}>
+                <Head ></Head>
+                <Home />
+              </div>
+            </div>
+          </div>
     )
   }
 }

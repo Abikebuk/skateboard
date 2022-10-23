@@ -1,0 +1,27 @@
+.head__flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.head__search {
+  background-color: #262B32;
+  color: white;
+  padding: 2px;
+}
+
+.horizontal-main-wrapper .header-area,
+.horizontal-main-wrapper .mainheader-area {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.header-area {
+  padding: 15px 30px;
+  background: #fff;
+  border-bottom: 1px solid #d8e3e7;
+}
+
+.mainheader-area .notification-area {
+  -webkit-transform: translateY(-11px);
+  transform: translateY(-11px);
+}
