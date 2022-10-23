@@ -8,6 +8,7 @@ import {
   Routes,
   Link,
 } from "react-router-dom"
+import Home from '../Home/Home';
 
 
 
@@ -18,6 +19,7 @@ class First extends Component {
         <div className="scren__size">
           <Head />
           <Navi />
+          <Home />
           {/* <Grid /> */}
         </div>
         <Foot />

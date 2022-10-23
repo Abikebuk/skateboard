@@ -1,5 +1,5 @@
 import Skateboard from '../Skateboard/Skateboard'
-import './Home.sass'
+import './Home.css'
 import ProductList from '../ProductList/ProductList'
 import ProductPage from '../ProductPage/ProductPage'
 
