@@ -1,8 +1,7 @@
 import ProductCard from '../ProductCard/ProductCard'
-import './ProductList.sass'
+import './ProductList.css'
 export default function ProductList() {
   return (
-
     <div id={'product-list'}>
       <div className={'container-fluid'}>
         <div className={'row'}>

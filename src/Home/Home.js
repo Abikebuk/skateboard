@@ -17,7 +17,6 @@ export default function Home() {
               brandLogo={'/quicksilver.png'}
               brandDescription={'Quality products for Boardriders since 1969. Shop our latest collections, follow news & videos of our Surf & Snowboard Athletes.'}
               description={description}
-
             />
           </div>
         </div>

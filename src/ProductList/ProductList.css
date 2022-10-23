@@ -1,0 +1,9 @@
+#product-list {
+  display: flex;
+}
+#product-list #filters {
+  text-align: right;
+  padding: 10px 50px;
+}
+
+/*# sourceMappingURL=ProductList.css.map */

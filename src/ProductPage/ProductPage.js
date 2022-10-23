@@ -1,4 +1,4 @@
-import './ProductPage.sass'
+import './ProductPage.css'
 import Button from 'bootstrap/js/src/button'
 
 // eslint-disable-next-line react/prop-types
