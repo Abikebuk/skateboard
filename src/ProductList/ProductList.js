@@ -6,6 +6,14 @@ export default function ProductList() {
     <div id={'product-list'}>
       <div className={'container-fluid'}>
         <div className={'row'}>
+          <div id={'filters'} className={'col-12'}>
+            <span id={'filter-text'}>Trier Par</span>
+            <select name={'filter'}>
+              <option value={'low'}>Popularité</option>
+              <option value={'low'}>Prix le plus bas</option>
+              <option value={'high'}>Prix le plus haut</option>
+            </select>
+          </div>
           <div className={'col-sm-6 col-md-4 col-xl-3'}>
             <ProductCard
               title={'Cool Skateboard'}
