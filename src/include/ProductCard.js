@@ -2,9 +2,9 @@ import './ProductCard.sass'
 
 const formatPrice = (price) =>
   new Intl.NumberFormat(
-    'de-FR',
-    {style: 'currency', currency: 'EUR'})
-    .format(price)
+      'de-FR',
+      {style: 'currency', currency: 'EUR'})
+      .format(price)
 
 // eslint-disable-next-line react/prop-types
 export default function ProductCard({title, description, price, brandLogo, productImage}) {
@@ -14,11 +14,11 @@ export default function ProductCard({title, description, price, brandLogo, produ
         <div className={'content'}>
           <div className={'col-auto header'}>
             <div className={'brand-logo'}>
-              <img src={brandLogo}/>
+              <img src={brandLogo} alt={'brand'}/>
             </div>
           </div>
           <div className={'col-auto image'}>
-            <img src={productImage}/>
+            <img src={productImage} alt={'title'}/>
           </div>
           <div className={'col-auto information'}>
             <div className={'title'}>

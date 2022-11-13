@@ -1,9 +1,8 @@
-import React, { Component } from 'react'
-import './Head.scss'
-import Button from 'bootstrap/js/src/button';
+import React, {Component} from 'react'
+import './Header.scss'
 
-class Head extends Component {
-  render () {
+class Header extends Component {
+  render() {
     return (
       <div className="header-area">
         <div className='head__flex'>
@@ -34,12 +33,11 @@ class Head extends Component {
     )
   }
 }
-function clickMenu(){
-  console.log("af")
-  document.getElementById('sidebar-menu-wrapper').classList.add("active")
-  document.getElementById('sidebar-menu-hide').classList.add("active")
+function clickMenu() {
+  console.log('af')
+  document.getElementById('sidebar-menu-wrapper').classList.add('active')
+  document.getElementById('sidebar-menu-hide').classList.add('active')
 }
 
 
-
-export default Head
+export default Header

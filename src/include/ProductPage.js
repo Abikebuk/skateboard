@@ -1,5 +1,4 @@
 import './ProductPage.css'
-import Button from 'bootstrap/js/src/button'
 
 // eslint-disable-next-line react/prop-types
 export default function ProductPage({title, image, brandLogo, brandDescription, description}) {
@@ -12,10 +11,10 @@ export default function ProductPage({title, image, brandLogo, brandDescription, 
             <div className={'container-fluid p-0'}>
               <div className={'row p-0'}>
                 <div className={'col-12'}>
-                  <img className={'image'} src={image}/>
+                  <img className={'image'} alt={title} src={image}/>
                 </div>
                 <div id={'brand'} className={'col-12'}>
-                  <img className={'image'} src={brandLogo}/>
+                  <img className={'image'} src={brandLogo} alt={'brand'}/>
                   <p className={'description'}>{brandDescription}</p>
                 </div>
                 <div className={'description'}>

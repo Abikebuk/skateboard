@@ -1,29 +1,25 @@
-import First from './products/First'
-
-import * as url from './include/var.js'
-import React, { useState } from 'react'
+import React from 'react'
 
 import {
   BrowserRouter as Router,
   Route,
   Routes,
-} from "react-router-dom"
-import Navi from './include/Navi'
+} from 'react-router-dom'
 import './App.css'
+import Home from './products/Home'
 
 function App() {
   return (
     <div className="App">
       <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <First />
-          }
-        />
-
-      </Routes>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home />
+            }
+          />
+        </Routes>
       </Router>
     </div>
   )

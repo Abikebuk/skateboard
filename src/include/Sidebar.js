@@ -1,41 +1,44 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import * as url from './var.js'
-import './Navi.scss'
+import './Sidebar.scss'
 import '../App.css'
 
 import {
   BrowserRouter,
   Link,
-} from "react-router-dom"
+} from 'react-router-dom'
 
 
-class Navi extends Component {
-  state = { clickProduct: false, clickOrder: false }
+class Sidebar extends Component {
+  state = {clickProduct: false, clickOrder: false}
 
   handleClickProduct = () => {
-    if (this.state.clickOrder)
-      this.setState({ clickOrder: this.state.clickOrder === false })
-    this.setState({ clickProduct: !this.state.clickProduct })
+    if (this.state.clickOrder) {
+      this.setState({clickOrder: this.state.clickOrder === false})
+    }
+    this.setState({clickProduct: !this.state.clickProduct})
   }
 
   handleClickOption = () => {
-    if (this.state.clickProduct)
-      this.setState({ clickProduct: this.state.clickProduct === false })
-    this.setState({ clickOption: !this.state.clickOption })
+    if (this.state.clickProduct) {
+      this.setState({clickProduct: this.state.clickProduct === false})
+    }
+    this.setState({clickOption: !this.state.clickOption})
   }
 
   handleClickParam = () => {
-    if (this.state.clickProduct && this.state.clickOption)
-      this.setState({ clickProduct: this.state.clickProduct === false && this.state.clickOption === false })
+    if (this.state.clickProduct && this.state.clickOption) {
+      this.setState({clickProduct: this.state.clickProduct === false && this.state.clickOption === false})
+    }
 
-    this.setState({ clickParam: !this.state.clickParam })
+    this.setState({clickParam: !this.state.clickParam})
   }
 
   productListUrl = '/products'
 
   render() {
     return (
-      <div id={"sidebar-menu-wrapper"} className={"container-fluid p-0"}>
+      <div id={'sidebar-menu-wrapper'} className={'container-fluid p-0'}>
         <div className="row h-100">
           <div className="sidebar-menu col-auto p-0">
             <div className="sidebar-header">
@@ -56,7 +59,7 @@ class Navi extends Component {
                     </li>
                     <li onClick={this.handleClickOption} className={this.state.clickProduct ? 'active' : ''}>
                       <a href="javascript:void(0)" aria-expanded="true"><i className="ti-layout-sidebar-left"></i><span>OPTIONS
-                  </span></a>
+                      </span></a>
                       <ul className={this.state.clickOption ? 'collapse in' : 'collapse'}>
                         {/* <Link to={url.option_management}>Gestion des options</Link> */}
                       </ul>
@@ -91,15 +94,15 @@ class Navi extends Component {
               </div>
             </div>
           </div>
-          <div id={"sidebar-menu-hide"} className={"col p-0"} onClick={hideMenu}/>
+          <div id={'sidebar-menu-hide'} className={'col p-0'} onClick={hideMenu}/>
         </div>
       </div>
 
     )
   }
 }
-function hideMenu(){
-  document.getElementById('sidebar-menu-wrapper').classList.remove("active")
-  document.getElementById('sidebar-menu-hide').classList.remove("active")
+function hideMenu() {
+  document.getElementById('sidebar-menu-wrapper').classList.remove('active')
+  document.getElementById('sidebar-menu-hide').classList.remove('active')
 }
-export default Navi
+export default Sidebar
