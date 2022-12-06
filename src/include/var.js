@@ -1,12 +1,13 @@
 // URL
-export var api_url ='http://localhost:1337'
+export const apiUrl ='http://localhost:1337'
 
-export var log = '/'
-export var products = '/products'
-export var navi = '/Sidebar'
-export var product_edit = '/ProductEdit'
+export const log = '/'
+export const products = '/products'
+export const navi = '/Sidebar'
+export const productEdit = '/ProductEdit'
 
 
-export var icon_delete = '/assets/images/icon/icon-trash.png'
-export var icon_edit = '/assets/images/icon/icons-crayon.png'
+export const iconDelete = '/assets/images/icon/icon-trash.png'
+export const iconEdit = '/assets/images/icon/icons-crayon.png'
+
 

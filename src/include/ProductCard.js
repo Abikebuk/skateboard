@@ -37,7 +37,6 @@ export default function ProductCard({title, description, price, brandLogo, produ
             </div>
           </div>
         </div>
-
         <div className={'col-auto footer'}>
           <span>Ajouter au panier</span>
         </div>

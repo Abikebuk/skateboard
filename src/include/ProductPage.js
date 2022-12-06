@@ -28,7 +28,12 @@ export default function ProductPage({title, image, brandLogo, brandDescription, 
           </div>
           <div id={'side-panel'} className={'col-md-12 col-lg-4'}>
             <div id={'side-panel-content'}>
-
+              <div id={'side-panel-price'}>
+                <span>Prix :</span>
+              </div>
+              <div id={'side-panel-add-to-cart'}>
+                <button>Ajouter au panier</button>
+              </div>
             </div>
           </div>
         </div>
