@@ -86,8 +86,8 @@ class Sidebar extends Component {
                       </ul>
                     </li>
                     <li>
-                      <a href="javascript:void(0)" aria-expanded="true"><i className="fa fa-table"></i>
-                        <span>CONDITION GENERAL VENTE</span></a>
+                    <Link to = "/cgv" aria-expanded="true"><i className="fa fa-table"></i>
+                        <span>CONDITION GENERAL VENTE</span></Link>
                     </li>
                   </ul>
                 </nav>
