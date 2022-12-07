@@ -1,5 +1,10 @@
 import React, {Component} from 'react'
 import './Header.scss'
+import {
+  BrowserRouter,
+  Link,
+} from 'react-router-dom'
+
 
 class Header extends Component {
   render() {
@@ -25,6 +30,11 @@ class Header extends Component {
                     </div>
                   </div>
                 </div>
+              </li>
+              <li>
+                <Link to = "/compte" aria-expanded="true">
+                  <img src={process.env.PUBLIC_URL + '/user-solid.png'} />
+                </Link>
               </li>
             </ul>
           </div>

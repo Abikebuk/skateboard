@@ -60,9 +60,7 @@ function Cgv() {
                     Avant toute commande, l’acheteur doit créer un compte sur le site accessible à l'adresse <i>{urlCompagny}</i>. 
                     La rubrique de création de compte est accessible directement depuis la barre de menu latérale. A chaque visite, l’acheteur, s’il souhaite commander ou consulter son compte 
                     (état des commandes, profil…), devra s’identifier à l’aide de ces informations. La société <b>{nameCompagny}</b> propose à l’acheteur de commander et régler 
-                    ses produits en plusieurs étapes, avec 1 option de paiement :
-                  </p>
-                  <p className='container'>
+                    ses produits en plusieurs étapes, avec 1 option de paiement :<br />
                     <b>Paiement sécurisé par Stripe :</b> l’acheteur sélectionne les produits qu’il souhaite commander dans le « panier », modifie si besoin (quantités, références…),
                     vérifie l’adresse de livraison ou en renseigne une nouvelle. Puis, les frais de port sont calculés et soumis à l’acheteur, ainsi que le nom du transporteur. 
                     Ensuite, l’acheteur choisit le mode de paiement de son choix : « Paiement par Paypal ». 
@@ -79,7 +77,7 @@ function Cgv() {
                     La confirmation d’une commande entraîne acceptation des présentes conditions de vente, la reconnaissance d’en avoir parfaite connaissance 
                     et la renonciation à se prévaloir de ses propres conditions d’achat. L’ensemble des données fournies et la confirmation enregistrée vaudront preuve de la transaction. 
                     Si l’acheteur possède une adresse électronique et s’il l’a renseignée sur son bon de commande, la société <b>{nameCompagny}</b> lui communiquera par 
-                    courrier électronique la confirmation de sa commande. 
+                    courrier électronique la confirmation de sa commande.
                   </p>
                 </div>
               </div>

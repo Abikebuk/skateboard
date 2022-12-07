@@ -4,10 +4,12 @@ import ProductList from '../include/ProductList'
 import ProductPage from '../include/ProductPage'
 import Sidebar from '../include/Sidebar'
 import Header from '../include/Header'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Home() {
   return (
     <div id={'home'}>
+      <FontAwesomeIcon icon="fa-regular fa-user"/>
       <div className={'container-fluid p-0'}>
         <div className={'row p-0 m-0'}>
           <div className={'col-auto p-0'}>
