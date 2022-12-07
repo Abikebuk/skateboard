@@ -8,6 +8,7 @@ import {
 import './App.css'
 import Home from './products/Home'
 import Cgv from './include/Cgv'
+import Inscription from './include/Inscription'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Router>
         <Routes>
         <Route path="/cgv" element={<Cgv />} />
+        <Route path="/inscription" element={<Inscription />} />
           <Route path="/" element={ <Home />}/>
         </Routes>
       </Router>
