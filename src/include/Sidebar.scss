@@ -59,7 +59,9 @@
 .logo img {
   width: 100%;
   height: 100%;
+  filter: drop-shadow(3px 0 4px white);
 }
+
 .mainheader-area .logo a span {
   color: #843df9;
 }

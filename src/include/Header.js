@@ -32,7 +32,7 @@ class Header extends Component {
                 </div>
               </li>
               <li>
-                <Link to = "/inscription" aria-expanded="true">
+                <Link to = "/connexion" aria-expanded="true">
                   <img src={process.env.PUBLIC_URL + '/account.png'} />
                 </Link>
               </li>

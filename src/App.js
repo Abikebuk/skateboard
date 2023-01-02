@@ -10,6 +10,7 @@ import Home from './products/Home'
 import Cgv from './include/Cgv'
 import Inscription from './include/Inscription'
 import ProductListPage from './include/ProductListPage'
+import Connexion from './include/Connexion'
 
 function App() {
   return (
@@ -17,10 +18,11 @@ function App() {
       <Router>
         <Routes>
           <Route path="/cgv" element={<Cgv />} />
-          <Route path="/inscription" element={<Inscription />} />
+          <Route path="/connexion" element={<Connexion />} />
           <Route path="/" element={ <Home />}/>
           <Route path={'/products'} element={<ProductListPage/>}/>
           {/* <Route path="/panier" element={ <Panier />}/>*/}
+          <Route path="/inscription" element={ <Inscription />}/>
         </Routes>
       </Router>
     </div>

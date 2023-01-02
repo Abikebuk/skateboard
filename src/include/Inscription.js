@@ -4,9 +4,8 @@ import Sidebar from './Sidebar'
 import Header from './Header'
 import '../include/Inscription.scss'
 
-function Inscription() {
+function Inscription() {    
     const [name, setName] = useState('');
-    const [age, setAge] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confPassword, setConfPassword] = useState('');
@@ -15,10 +14,6 @@ function Inscription() {
     // function to update state of name with
     // value enter by user in form
     const handleChange = (e) => { setName(e.target.value); }
-
-    // function to update state of age with value
-    // enter by user in form
-    const handleAgeChange = (e) => { setAge(e.target.value); }
 
     // function to update state of email with value
     // enter by user in form
@@ -36,10 +31,10 @@ function Inscription() {
     // click on submit button .
     const handleSubmit = (e) => {
         if (password != confPassword) {
-            setVerifPassword("Mot de passe différent")
+            alert("Les password sont différents")
         }
         else {
-
+            alert("Inscription réussit")
         }
         e.preventDefault();
     }
@@ -53,40 +48,29 @@ function Inscription() {
                     </div>
                     <div id={'content'} className={'col p-0'}>
                         <Header ></Header>
-                        <div className={'container-fluid'}>
+                        <div className={'container-fluid m-0'}>
                             <div className={'row'}>
                                 <div className="Axel">
                                     <header className="App-header">
                                         <form onSubmit={(e) => { handleSubmit(e) }}>
-                                            {/*when user submit the form , handleSubmit() function will be called .*/}
-                                            <h2> Geeks For Geeks </h2>
-                                            <p>{verifPassword}</p>
+                                            <h2> INSCRIPTION</h2>
                                             <div className='form-group'>
-                                                <label> Name: </label>
-                                                <input type="text" className="form-control mx-sm-3 fix-margin" value={name} required onChange={(e) => { handleChange(e) }} /><br />
-                                                { /*when user write in name input box , handleChange() function will be called. */}
-                                            </div>
-                                            <div className='form-group'>
-                                                <label > Age:</label>
-                                                <input type="text" className="form-control mx-sm-3 fix-margin" value={age} required onChange={(e) => { handleAgeChange(e) }} /><br />
-                                                { /*when user write in age input box , handleAgeChange() function will be called. */}
+                                                <label> Username: </label>
+                                                <input type="text" className="form-control" value={name} required onChange={(e) => { handleChange(e) }} /><br />
                                             </div>
                                             <div className='form-group'>
                                                 <label>Email: </label>
-                                                <input type="email" className="form-control mx-sm-3 fix-margin" value={email} required onChange={(e) => { handleEmailChange(e) }} /><br />
-                                                {/* when user write in email input box , handleEmailChange() function will be called.*/}
+                                                <input type="email" className="form-control" value={email} required onChange={(e) => { handleEmailChange(e) }} /><br />
                                             </div>
                                             <div className='form-group'>
                                                 <label>Password:</label>
-                                                <input type="password" className="form-control mx-sm-3 fix-margin" value={password} required onChange={(e) => { handlePasswordChange(e) }} /><br />
-                                                {/* when user write in password input box , handlePasswordChange() function will be called.*/}
+                                                <input type="password" className="form-control" value={password} required onChange={(e) => { handlePasswordChange(e) }} /><br />
                                             </div>
                                             <div className='form-group'>
                                                 <label>Confirm Password:</label>
-                                                <input type="password" className="form-control mx-sm-3 fix-margin" value={confPassword} required onChange={(e) => { handleConfPasswordChange(e) }} /><br />
-                                                {/* when user write in confirm password  input box , handleConfPasswordChange() function will be called.*/}
+                                                <input type="password" className="form-control" value={confPassword} required onChange={(e) => { handleConfPasswordChange(e) }} /><br />
                                             </div>                                    
-                                            <input type="submit" class="btn btn-primary" value="Inscription" />
+                                            <input type="submit" class="boutonVal" value="VALIDER" />
                                         </form>
                                     </header>
                                 </div>
