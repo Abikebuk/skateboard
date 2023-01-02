@@ -8,6 +8,7 @@ const formatPrice = (price) =>
 
 // eslint-disable-next-line react/prop-types
 export default function ProductCard({title, description, price, brandLogo, productImage}) {
+  console.log(process.env.REACT_APP_BACK_URL + productImage)
   return (
     <div className={'product-card-wrapper'}>
       <div className="product-card">
@@ -18,7 +19,7 @@ export default function ProductCard({title, description, price, brandLogo, produ
             </div>
           </div>
           <div className={'col-auto image'}>
-            <img src={productImage} alt={'title'}/>
+            <img src={process.env.REACT_APP_BACK_URL + productImage} alt={'title'}/>
           </div>
           <div className={'col-auto information'}>
             <div className={'title'}>

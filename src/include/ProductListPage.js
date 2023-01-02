@@ -32,7 +32,7 @@ export default function ProductListPage() {
       axios(
           {
             method: 'GET',
-            url: process.env.REACT_APP_BACK_URL + 'api/produits',
+            url: process.env.REACT_APP_BACK_URL + '/api/produits?populate=*',
           },
       ).then((res) => {
         setProducts(res.data.data)

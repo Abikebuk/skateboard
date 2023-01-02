@@ -22,7 +22,6 @@ export default function Home() {
                 <div id={'skateboard'} className={'col-12'}>
                   <Skateboard/>
                 </div>
-                <ProductList/>
                 <ProductPage
                   title={'COOL SKATEBOARD'}
                   image={'/skateboard.jpg'}

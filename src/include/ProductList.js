@@ -3,7 +3,6 @@ import './ProductList.css'
 
 // eslint-disable-next-line react/prop-types
 export default function ProductList({products}) {
-  console.log(products)
   return (
     <div id={'product-list'}>
       <div className={'container-fluid p-0'}>
@@ -14,9 +13,9 @@ export default function ProductList({products}) {
                 <ProductCard
                   title={data.attributes.titre}
                   description={data.attributes.description}
+                  productImage={data.attributes.image.data.attributes.formats.thumbnail.url}
                   price={data.attributes.prix}
                   brandLogo={'/quicksilver.png'}
-                  productImage={'/skateboard.jpg'}
                 />
               </div>,
             )
