@@ -5,8 +5,10 @@
 
 .head__search {
   background-color: #262B32;
+  text-align: center;
   color: white;
-  padding: 2px;
+  padding: 1px 10%;
+  margin-left: 12%;
 }
 
 .horizontal-main-wrapper .header-area,
