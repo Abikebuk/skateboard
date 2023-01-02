@@ -1,0 +1,37 @@
+.Axel img {
+  height: 120px;
+  margin-left: 90px;
+  margin-bottom: 10px;
+  display: block;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+.Axel form {
+  border: 2px solid green;
+  padding: 60px;
+}
+.Axel form .fix-margin {
+  margin-left: 0 !important;
+}
+.Axel form .form-group {
+  margin-bottom: 0;
+}
+.Axel form .form-group label {
+  margin-right: 3%;
+}
+.Axel form .form-group imput {
+  min-width: 200px;
+}
+
+.App-header {
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
+/*# sourceMappingURL=Inscription.css.map */

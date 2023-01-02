@@ -1,65 +1,29 @@
 import ProductCard from './ProductCard'
 import './ProductList.css'
-export default function ProductList() {
+
+// eslint-disable-next-line react/prop-types
+export default function ProductList({products}) {
+  console.log(products)
   return (
     <div id={'product-list'}>
       <div className={'container-fluid p-0'}>
         <div className={'row'}>
-          <div id={'filters'} className={'col-12'}>
-            <span id={'filter-text'}>Trier Par</span>
-            <select name={'filter'}>
-              <option value={'low'}>Popularité</option>
-              <option value={'low'}>Prix le plus bas</option>
-              <option value={'high'}>Prix le plus haut</option>
-            </select>
-          </div>
-          <div className={'col-md-6 col-lg-4 col-xl-3 p-0'}>
-            <ProductCard
-              title={'Cool Skateboard'}
-              description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'}
-              price={'232.58'}
-              brandLogo={'/quicksilver.png'}
-              productImage={'/skateboard.jpg'}
-            />
-          </div>
-          <div className={'col-md-6 col-lg-4 col-xl-3 p-0'}>
-            <ProductCard
-              title={'Cool Skateboard'}
-              description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'}
-              price={'232.58'}
-              brandLogo={'/quicksilver.png'}
-              productImage={'/skateboard.jpg'}
-            />
-          </div>
-          <div className={'col-md-6 col-lg-4 col-xl-3 p-0'}>
-            <ProductCard
-              title={'Cool Skateboard'}
-              description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'}
-              price={'232.58'}
-              brandLogo={'/quicksilver.png'}
-              productImage={'/skateboard.jpg'}
-            />
-          </div>
-          <div className={'col-md-6 col-lg-4 col-xl-3 p-0'}>
-            <ProductCard
-              title={'Cool Skateboard'}
-              description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'}
-              price={'232.58'}
-              brandLogo={'/quicksilver.png'}
-              productImage={'/skateboard.jpg'}
-            />
-          </div>
-          <div className={'col-md-6 col-lg-4 col-xl-3 p-0'}>
-            <ProductCard
-              title={'Cool Skateboard'}
-              description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'}
-              price={'232.58'}
-              brandLogo={'/quicksilver.png'}
-              productImage={'/skateboard.jpg'}
-            />
-          </div>
+          {
+            products.map((data) =>
+              <div className={'col-md-6 col-lg-4 col-xl-3 p-0'} key={data.attributes.ref}>
+                <ProductCard
+                  title={data.attributes.titre}
+                  description={data.attributes.description}
+                  price={data.attributes.prix}
+                  brandLogo={'/quicksilver.png'}
+                  productImage={'/skateboard.jpg'}
+                />
+              </div>,
+            )
+          }
         </div>
       </div>
     </div>
   )
 }
+

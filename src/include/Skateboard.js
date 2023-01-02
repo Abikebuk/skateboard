@@ -5,10 +5,13 @@ import skateboardGltf from '../assets/skateboard-full.glb'
 function SkateboardModel(props) {
   const {nodes} = useGLTF(skateboardGltf)
   const {width} = useThree((state) => state.viewport)
+  // const skateboard = Object.keys(nodes).map((k) => loadSkateboardPart(nodes[k]))
   console.log(nodes)
+  const skateboard = nodes.Skateboard_Sub_assembly1.parent.children
+  console.log(skateboard)
   return (
     <group {...props} dispose={null} scale={width}>
-      {Object.keys(nodes).map((k) => loadSkateboardPart(nodes[k]))}
+      { skateboard.map((k) => loadMainPart(k))}
     </group>
   )
 }
@@ -38,19 +41,34 @@ function loadMesh(node) {
       scale={node.scale}
       rotation={node.rotation}
       material={node.material}
-      onClick={(e) => {
-        console.log(e)
-        e.stopPropagation()
-        e.delta <= 5 && api.refresh(e.object).fit()
-      }
-      }
-      onPointerMissed={(e) => e.button === 0 && api.refresh().fit()}
     >
       {node.children.map((children) => loadAll(children))}
     </mesh>
   )
 }
 
+function loadGroupInteractable(node) {
+  const api = useBounds()
+  {
+    return (
+      <group
+        key={node.name}
+        position={node.position}
+        rotation={node.rotation}
+        scale={node.scale}
+        onClick={(e) => {
+          console.log(e)
+          e.stopPropagation()
+          node.delta <= 2 && api.refresh(node).fit()
+        }
+        }
+        onPointerMissed={(e) => e.button === 0 && api.refresh().fit()}
+      >
+        {node.children.map((children) => loadAll(children))}
+      </group>
+    )
+  }
+}
 function loadGroup(node) {
   return (
     <group
@@ -62,6 +80,24 @@ function loadGroup(node) {
       {node.children.map((children) => loadAll(children))}
     </group>
   )
+}
+
+function loadMainPart(node) {
+  console.log(node.name)
+  switch (node.name) {
+    case 'Skateboard_Sub_assembly1':
+      return <Bounds fit clip observe damping={6} margin={1.2}>
+        {loadGroupInteractable(node)}
+      </Bounds>
+    case 'board1':
+      return <Bounds fit clip observe damping={6} margin={1.2}>
+        {loadGroupInteractable(node)}
+      </Bounds>
+    case 'Skateboard_Sub_assembly2':
+      return <Bounds fit clip observe damping={6} margin={1.2}>
+        {loadGroupInteractable(node)}
+      </Bounds>
+  }
 }
 
 function loadSkateboardPart(node) {

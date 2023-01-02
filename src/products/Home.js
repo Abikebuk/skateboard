@@ -4,7 +4,7 @@ import ProductList from '../include/ProductList'
 import ProductPage from '../include/ProductPage'
 import Sidebar from '../include/Sidebar'
 import Header from '../include/Header'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
 export default function Home() {
   return (
@@ -16,7 +16,7 @@ export default function Home() {
             <Sidebar />
           </div>
           <div id={'content'} className={'col p-0'}>
-            <Header ></Header>
+            <Header />
             <div className={'container-fluid'}>
               <div className={'row'}>
                 <div id={'skateboard'} className={'col-12'}>
