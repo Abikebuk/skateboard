@@ -17,7 +17,8 @@ function App() {
         <Routes>
         <Route path="/cgv" element={<Cgv />} />
         <Route path="/inscription" element={<Inscription />} />
-          <Route path="/" element={ <Home />}/>
+        <Route path="/" element={ <Home />}/>
+        {/*<Route path="/panier" element={ <Panier />}/>*/}
         </Routes>
       </Router>
     </div>
