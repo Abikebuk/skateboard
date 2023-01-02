@@ -43,8 +43,10 @@ class Sidebar extends Component {
           <div className="sidebar-menu col-auto p-0">
             <div className="sidebar-header">
               <div className="logo">
-                {/* <a href="#"><img src={url.icon_logo} alt="logo" /></a> */}
-                <p>test</p>
+                <Link to = "/">
+                  <img src="/icon_logo.png" alt="logo"/>
+                </Link>
+                {/*<p>test</p>*/}
               </div>
             </div>
             <div className="main-menu">
