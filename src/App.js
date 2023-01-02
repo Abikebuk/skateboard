@@ -11,6 +11,7 @@ import Cgv from './include/Cgv'
 import Inscription from './include/Inscription'
 import ProductListPage from './include/ProductListPage'
 import Connexion from './include/Connexion'
+import ProductPage from './include/ProductPage'
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
           <Route path={'/products'} element={<ProductListPage/>}/>
           {/* <Route path="/panier" element={ <Panier />}/>*/}
           <Route path="/inscription" element={ <Inscription />}/>
+          <Route path={'/product/:id'} element={<ProductPage />} />
+
         </Routes>
       </Router>
     </div>
