@@ -33,7 +33,12 @@ class Header extends Component {
               </li>
               <li>
                 <Link to = "/inscription" aria-expanded="true">
-                  <img src={process.env.PUBLIC_URL + '/user-solid.png'} />
+                  <img src={process.env.PUBLIC_URL + '/account.png'} />
+                </Link>
+              </li>
+              <li>
+                <Link to = "/panier" aria-expanded="true">
+                  <img src={process.env.PUBLIC_URL + '/panier.png'} />
                 </Link>
               </li>
             </ul>

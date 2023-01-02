@@ -9,17 +9,17 @@ import './App.css'
 import Home from './products/Home'
 import Cgv from './include/Cgv'
 import Inscription from './include/Inscription'
-import ProductListPage from './include/ProductListPage'
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/cgv" element={<Cgv />} />
-          <Route path="/inscription" element={<Inscription />} />
+        <Route path="/cgv" element={<Cgv />} />
+        <Route path="/inscription" element={<Inscription />} />
           <Route path="/" element={ <Home />}/>
           <Route path={'/products'} element={<ProductListPage/>}/>
+          {/*<Route path="/panier" element={ <Panier />}/>*/}
         </Routes>
       </Router>
     </div>
