@@ -1,3 +1,4 @@
+import '../include/Cgv.scss';
 import ProductList from '../include/ProductList'
 import Sidebar from '../include/Sidebar'
 import Header from './Header'
@@ -13,12 +14,12 @@ export default function ProductListPage() {
     switch (e.target.value) {
       case 'high':
         res = products.sort(
-            (a, b) => b.attributes.prix - a.attributes.prix,
+          (a, b) => b.attributes.prix - a.attributes.prix,
         )
         break
       case 'low':
         res = products.sort(
-            (a, b) => a.attributes.prix - b.attributes.prix,
+          (a, b) => a.attributes.prix - b.attributes.prix,
         )
         break
     }
@@ -29,10 +30,10 @@ export default function ProductListPage() {
     if (!loaded) {
       console.log('loading products...')
       axios(
-          {
-            method: 'GET',
-            url: process.env.REACT_APP_BACK_URL + '/api/produits?fields[0]=titre&fields[1]=prix&fields[2]=description&populate[0]=image&populate[1]=marque.logo',
-          },
+        {
+          method: 'GET',
+          url: process.env.REACT_APP_BACK_URL + '/api/produits?fields[0]=titre&fields[1]=prix&fields[2]=description&populate[0]=image&populate[1]=marque.logo',
+        },
       ).then((res) => {
         console.log(res.data)
         setProducts(res.data.data)
@@ -43,16 +44,27 @@ export default function ProductListPage() {
   return (
     <div id={'products'}>
       <div className={'container-fluid p-0'}>
-        <div className={'row'}>
-          <div id={'filters'} className={'col-12'}>
-            <span id={'filter-text'}>Trier Par</span>
-            <select name={'filter'} onChange={selectFilter}>
-              <option value={'low'}>Popularité</option>
-              <option value={'low'}>Prix le plus bas</option>
-              <option value={'high'}>Prix le plus haut</option>
-            </select>
+        <div className={'row p-0 m-0'}>
+          <div className={'col-auto p-0'}>
+            <Sidebar />
           </div>
-          <ProductList products={products}/>
+          <div id={'content'} className={'col p-0'}>
+            <Header />
+            <div className={'container-fluid p-0'}>
+              <div className={'row'}>
+                <div id={'filters'} className={'col-12'}>
+                  <br/>
+                  <span id={'filter-text'} className="selecteur"> Trier par : </span>
+                  <select name={'filter'} onChange={selectFilter} className={"filter"}>
+                    <option value={'low'}>Popularité</option>
+                    <option value={'low'}>Prix le plus bas</option>
+                    <option value={'high'}>Prix le plus haut</option>
+                  </select>
+                </div>
+                <ProductList products={products}/>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
