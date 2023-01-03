@@ -1,5 +1,15 @@
 @charset "UTF-8";
 /* footer */
+@import '../App.css';
+@import '../assets/css/font-awesome.min.css';
+@import '../assets/css/themify-icons.css';
+@import '../assets/css/themify-icons.css';
+@import '../assets/css/metisMenu.css';
+@import '../assets/css/owl.carousel.min.css';
+@import '../assets/css/slicknav.min.css';
+@import '../assets/css/typography.css';
+@import '../assets/css/default-css.css';
+@import '../assets/css/responsive.css';
 .footer__site {
   text-align: center;
   position: sticky;
@@ -11303,7 +11313,7 @@ textarea.form-control-lg {
 .logo img {
   width: 100%;
   height: 100%;
-  filter: drop-shadow(3px 0 4px white);
+  filter: drop-shadow(0 0 4px #FFFFFF);
 }
 
 .mainheader-area .logo a span {

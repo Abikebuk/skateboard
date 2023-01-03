@@ -1,5 +1,16 @@
 @import "../App";
 @import "../custom-variables";
+@import '../App.css';
+@import '../assets/css/font-awesome.min.css';
+@import '../assets/css/themify-icons.css';
+@import '../assets/css/themify-icons.css';
+@import '../assets/css/metisMenu.css';
+@import '../assets/css/owl.carousel.min.css';
+@import '../assets/css/slicknav.min.css';
+@import '../assets/css/typography.css';
+@import '../assets/css/default-css.css';
+@import '../assets/css/responsive.css';
+
 .sidebar-menu {
   pointer-events: all;
   left: 0;
@@ -179,3 +190,4 @@
 .metismenu li.active>a i {
   color: #fff;
 }
+

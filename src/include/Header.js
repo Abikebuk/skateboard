@@ -10,20 +10,35 @@ class Header extends Component {
     return (
       <div className="header-area">
         <div className='head__flex'>
-          <input className='head__search' type='search' placeholder="Rechercher sur le site…"></input>
-          <button type="submit" className='head__search2'><i className='bi bi-search'></i></button>
-          <ul className="notification-area pull-right">
-            <li>
-              <Link to = "/connexion" aria-expanded="true">
-                <img src={process.env.PUBLIC_URL + '/account.png'} />
-              </Link>
-            </li>
-            <li>
-              <Link to = "/panier" aria-expanded="true">
-                <img src={process.env.PUBLIC_URL + '/panier.png'} />
-              </Link>
-            </li>
-          </ul>
+          <button className='d-md-none' onClick={clickMenu}>MENU</button>
+          <div className={'container-fluid p-0 m-0'}>
+            <div className={'row p-0 m-0'}>
+              <div className={'col'}>
+                <div id={'searchbar'}>
+                  <div className={'container-fluid p-0 m-0'}>
+                    <div className={'row p-0 m-0'}>
+                      <div className={'col'}>
+                        <input className='head__search' type='search' placeholder="Rechercher sur le site…"></input>
+                      </div>
+                      <div className={'col-auto'}>
+                        <button type="submit" className='head__search2'><i className='bi bi-search'></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className={'col-auto d-md-block icon'}>
+                <Link to = "/connexion" aria-expanded="true">
+                  <img src={process.env.PUBLIC_URL + '/account.png'} />
+                </Link>
+              </div>
+              <div className={'col-auto d-md-block icon'}>
+                <Link to = "/panier" aria-expanded="true">
+                  <img src={process.env.PUBLIC_URL + '/panier.png'} />
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     )

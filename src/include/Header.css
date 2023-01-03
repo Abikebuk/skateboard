@@ -4,16 +4,18 @@
   padding: 1px 0px 1px 7px;
   width: 20%;
   height: 35px;
+  border-radius: 15px;
   border: #303641;
 }
 
 .head__search2 {
+  font-size: 20px;
   background-color: white;
   text-align: center;
   color: #303641;
-  width: 8%;
+  width: 1%;
   height: 5%;
-  margin-left: 1%;
+  margin-left: -2%;
   border-radius: 15px;
   border: #303641;
 }
@@ -29,6 +31,7 @@
   background: #303641;
   border-bottom: 1px solid #d8e3e7;
   text-align: left;
+  margin-left: -30px;
 }
 
 .mainheader-area .notification-area {
@@ -43,7 +46,19 @@ ul {
 img {
   height: 35px;
   margin-right: 20px;
-  filter: drop-shadow(2px 0 4px white);
+  filter: drop-shadow(0 0 1px #FFFFFF);
+}
+
+#searchbar {
+  background-color: white;
+}
+#searchbar .head__search {
+  background: transparent;
+  width: 100%;
+}
+
+.head__flex .icon {
+  display: none;
 }
 
 /*# sourceMappingURL=Header.css.map */
