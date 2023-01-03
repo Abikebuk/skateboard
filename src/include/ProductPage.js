@@ -2,7 +2,6 @@ import './ProductPage.css'
 import {useParams} from 'react-router-dom'
 import {useEffect, useState} from 'react'
 import axios from 'axios'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import Sidebar from './Sidebar'
 import Header from './Header'
 
@@ -27,57 +26,49 @@ export default function ProductPage() {
       url: url,
     }).then((res) =>{
       setData(res.data.data.attributes)
-      setTitle(data.titre)
-      setImage(process.env.REACT_APP_BACK_URL + data.image.data.attributes.formats.thumbnail.url)
-      setBrandLogo(process.env.REACT_APP_BACK_URL + data.marque.data.attributes.logo.data.attributes.formats.thumbnail.url)
-      setBrandDescription(data.marque.data.attributes.description)
-      setDescription(data.description)
+      if (data != null) {
+        setTitle(data.titre)
+        setImage(process.env.REACT_APP_BACK_URL + data.image.data.attributes.formats.thumbnail.url)
+        setBrandLogo(process.env.REACT_APP_BACK_URL + data.marque.data.attributes.logo.data.attributes.formats.thumbnail.url)
+        setBrandDescription(data.marque.data.attributes.description)
+        setDescription(data.description)
+      }
     })
   })
   return (
-    <div id={'homeproducts'}>
+    <div id={'product'}>
       <div className={'container-fluid p-0'}>
-        <div className={'row p-0 m-0'}>
-          <div className={'col-auto p-0'}>
-            <Sidebar />
-          </div>
-          <div id={'content'} className={'col p-0'}>
-            <Header />
+        <div className={'row'}>
+          <div id={'product-page'} className={'col-12'}>
             <div className={'container-fluid p-0'}>
-              <div className={'row'}>
-                <div id={'product-page'} className={'col-12'}>
+              <div className={'row p-0'}>
+                <div id={'title'} className={'col-12'}>{title}</div>
+                <div id={'content'} className={'col-md-12 col-lg-8'}>
                   <div className={'container-fluid p-0'}>
                     <div className={'row p-0'}>
-                      <div id={'title'} className={'col-12'}>{title}</div>
-                      <div id={'content'} className={'col-md-12 col-lg-8'}>
-                        <div className={'container-fluid p-0'}>
-                          <div className={'row p-0'}>
-                            <div className={'col-12'}>
-                              <img className={'image'} alt={title} src={image}/>
-                            </div>
-                            <div id={'brand'} className={'col-12'}>
-                              <img className={'image'} src={brandLogo} alt={'brand'}/>
-                              <p className={'description'}>{brandDescription}</p>
-                            </div>
-                            <div className={'description'}>
-                              <span className={'title'}>Description</span>
-                              <p>
-                                {description}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
+                      <div className={'col-12'}>
+                        <img className={'image'} alt={title} src={image}/>
                       </div>
-                      <div id={'side-panel'} className={'col-md-12 col-lg-4'}>
-                        <div id={'side-panel-content'}>
-                          <div id={'side-panel-price'}>
-                            <span>Prix :</span>
-                          </div>
-                          <div id={'side-panel-add-to-cart'}>
-                            <button>Ajouter au panier</button>
-                          </div>
-                        </div>
+                      <div id={'brand'} className={'col-12'}>
+                        <img className={'image'} src={brandLogo} alt={'brand'}/>
+                        <p className={'description'}>{brandDescription}</p>
                       </div>
+                      <div className={'description'}>
+                        <span className={'title'}>Description</span>
+                        <p>
+                          {description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id={'side-panel'} className={'col-md-12 col-lg-4'}>
+                  <div id={'side-panel-content'}>
+                    <div id={'side-panel-price'}>
+                      <span>Prix :</span>
+                    </div>
+                    <div id={'side-panel-add-to-cart'}>
+                      <button>Ajouter au panier</button>
                     </div>
                   </div>
                 </div>

@@ -43,26 +43,16 @@ export default function ProductListPage() {
   return (
     <div id={'products'}>
       <div className={'container-fluid p-0'}>
-        <div className={'row p-0 m-0'}>
-          <div className={'col-auto p-0'}>
-            <Sidebar />
+        <div className={'row'}>
+          <div id={'filters'} className={'col-12'}>
+            <span id={'filter-text'}>Trier Par</span>
+            <select name={'filter'} onChange={selectFilter}>
+              <option value={'low'}>Popularité</option>
+              <option value={'low'}>Prix le plus bas</option>
+              <option value={'high'}>Prix le plus haut</option>
+            </select>
           </div>
-          <div id={'content'} className={'col p-0'}>
-            <Header />
-            <div className={'container-fluid p-0'}>
-              <div className={'row'}>
-                <div id={'filters'} className={'col-12'}>
-                  <span id={'filter-text'}>Trier Par</span>
-                  <select name={'filter'} onChange={selectFilter}>
-                    <option value={'low'}>Popularité</option>
-                    <option value={'low'}>Prix le plus bas</option>
-                    <option value={'high'}>Prix le plus haut</option>
-                  </select>
-                </div>
-                <ProductList products={products}/>
-              </div>
-            </div>
-          </div>
+          <ProductList products={products}/>
         </div>
       </div>
     </div>
