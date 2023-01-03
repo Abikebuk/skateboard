@@ -2,7 +2,7 @@
 import Sidebar from './Sidebar'
 import Header from './Header'
 
-export default function Content({T}) {
+export default function Menus({T}) {
   return (
     <div id={'main'}>
       <div className={'container-fluid p-0'}>
