@@ -12,7 +12,6 @@ import Inscription from './include/Inscription'
 import ProductListPage from './include/ProductListPage'
 import Connexion from './include/Connexion'
 import ProductPage from './include/ProductPage'
-import Content from './include/Content'
 import Menus from './include/Menus'
 
 function App() {
