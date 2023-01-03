@@ -11334,6 +11334,8 @@ textarea.form-control-lg {
   padding: 15px 15px;
   letter-spacing: 0;
   font-weight: 400;
+  text-decoration: none;
+  margin-left: -20%;
 }
 
 .metismenu li a i {
