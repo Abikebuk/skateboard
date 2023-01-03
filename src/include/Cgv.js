@@ -18,7 +18,7 @@ function Cgv() {
               <div className={'row'}>
                 <div className='containerTot'>
                   <h1 className='title1'>Conditions Générales de Vente</h1>
-                  <p className='container2'>
+                  <p className='container'>
                     Les présentes conditions de vente sont conclues d’une part par la société <b>{nameCompagny}</b> dont le siège social est situé à Paris, 
                     immatriculée au Registre du Commerce et des Sociétés, ci-après la société dénommée <b>{nameCompagny}</b>, gérant du site <b>{nameCompagny}</b>, 
                     accessible à l'adresse <i>{urlCompagny}</i> et, d’autre part, par toute personne physique ou morale souhaitant procéder à un achat sur le site internet CollantSkate, 
