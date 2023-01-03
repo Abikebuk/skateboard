@@ -19,13 +19,13 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/cgv" element={<Cgv />} />
-          <Route path="/connexion" element={<Connexion />} />
+          <Route path="/cgv" element={<Content T={Cgv} />} />
+          <Route path="/connexion" element={<Content T={Connexion} />} />
           <Route path="/" element={ <Home />}/>
           <Route path={'/products'} element={<Content T={ProductListPage}/>}/>
           <Route path={'/b'} element={<Content/>}/>
           {/* <Route path="/panier" element={ <Panier />}/>*/}
-          <Route path="/inscription" element={ <Inscription />}/>
+          <Route path="/inscription" element={ <Content T={Inscription} />}/>
           <Route path={'/product/:id'} element={<Content T={ProductPage} />} />
           <Route path={'/content'} element={<Content T={ProductListPage}/>}/>
         </Routes>
