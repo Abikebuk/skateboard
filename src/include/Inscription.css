@@ -1,36 +1,36 @@
-.Axel img {
-  height: 120px;
-  margin-left: 90px;
-  margin-bottom: 10px;
-  display: block;
-  border: 1px solid black;
-  border-radius: 50%;
-}
 .Axel form {
-  border: 2px solid green;
+  border: 1px solid;
+  width: 60%;
+  height: 100%;
   padding: 60px;
+  font-size: 14pt;
+  border-radius: 50px;
 }
-.Axel form .fix-margin {
-  margin-left: 0 !important;
+.Axel form h2 {
+  margin-bottom: 6%;
+  margin-top: -3%;
 }
 .Axel form .form-group {
-  margin-bottom: 0;
+  text-align: left;
+  margin-top: -2%;
 }
-.Axel form .form-group label {
-  margin-right: 3%;
+.Axel form .boutonVal {
+  padding: 0.5%;
+  width: 35%;
+  height: 100%;
+  border-radius: 15px;
+  background-image: linear-gradient(to right bottom, #917fd5, #ab60b0, #b73f82, #b2234e, #9d1b1b);
+  border: indigo;
+  color: white;
 }
-.Axel form .form-group imput {
-  min-width: 200px;
+.Axel form .redirection {
+  text-align: right;
+  margin-bottom: 3%;
+  margin-top: -33px;
 }
 
 .App-header {
   background-color: white;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: black;
 }
 

@@ -1,6 +1,5 @@
 import ProductList from '../include/ProductList'
 import Sidebar from '../include/Sidebar'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import Header from './Header'
 import axios from 'axios'
 import {useEffect, useState} from 'react'
@@ -32,9 +31,10 @@ export default function ProductListPage() {
       axios(
           {
             method: 'GET',
-            url: process.env.REACT_APP_BACK_URL + '/api/produits?populate=*',
+            url: process.env.REACT_APP_BACK_URL + '/api/produits?fields[0]=titre&fields[1]=prix&fields[2]=description&populate[0]=image&populate[1]=marque.logo',
           },
       ).then((res) => {
+        console.log(res.data)
         setProducts(res.data.data)
       })
       setLoaded(true)
@@ -42,7 +42,6 @@ export default function ProductListPage() {
   })
   return (
     <div id={'products'}>
-      <FontAwesomeIcon icon="fa-regular fa-user"/>
       <div className={'container-fluid p-0'}>
         <div className={'row p-0 m-0'}>
           <div className={'col-auto p-0'}>
