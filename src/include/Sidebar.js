@@ -40,22 +40,25 @@ function Sidebar() {
               </Link>
             </div>
           </div>
-          <div className={'cotnainer-fluid'}>
-            <div className={'row'}>
-              <div className={'col-auto d-md-none icon'}>
-                <Link to = "/connexion" aria-expanded="true">
-                  <img src={process.env.PUBLIC_URL + '/account.png'} />
-                </Link>
-              </div>
-              <div className={'col-auto d-md-none icon'}>
-                <Link to = "/panier" aria-expanded="true">
-                  <img src={process.env.PUBLIC_URL + '/panier.png'} />
-                </Link>
-              </div>
-            </div>
-          </div>
           <div className="main-menu">
             <div className="menu-inner">
+              <div className={'container-fluid'}>
+                <div className='img_icon'>
+                  <div className={'row'}>
+                    <div className={'col-auto d-md-none icon'}>
+                      <Link to = "/connexion" aria-expanded="true">
+                        <img src={process.env.PUBLIC_URL + '/account.png'} />
+                      </Link>
+                    </div>
+                    <div className={'col-auto d-md-none icon'}>
+                      <Link to = "/panier" aria-expanded="true">
+                        <img src={process.env.PUBLIC_URL + '/panier.png'} />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <br/>
               <nav>
                 <ul className="metismenu" id="menu">
                   <li onClick={handleClickProduct} className={clickProduct ? 'active' : ''}>

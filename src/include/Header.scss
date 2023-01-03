@@ -1,3 +1,7 @@
+@import "../App";
+@import "../custom-variables";
+@import '../App.css';
+
 .head__search {
   background-color: white;
   color: #303641;
@@ -31,7 +35,9 @@
   background: #303641;
   border-bottom: 1px solid #d8e3e7;
   text-align: left;
-  margin-left: -30px;
+  @include media-breakpoint-down(md) {
+    width: 100%;
+  }
 }
 
 .mainheader-area .notification-area {
@@ -51,10 +57,18 @@ img {
 
 #searchbar {
   background-color: white;
+  width: 40%;
+  border-radius: 15px;
+  margin-left: -60px;
 
   .head__search {
     background: transparent;
     width: 100%;
+  }
+  @include media-breakpoint-down(md) {
+    width: 100%;
+    margin-left: auto;
+    margin-top: -5px;
   }
 }
 .head__flex{
