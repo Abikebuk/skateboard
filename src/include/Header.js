@@ -11,7 +11,7 @@ class Header extends Component {
       <div className="header-area">
         <div className='head__flex'>
           <input className='head__search' type='search' placeholder="Rechercher sur le site…"></input>
-          <input type="submit" class="head__search2" value="Rechercher" />
+          <button type="submit" className='head__search2'><i className='bi bi-search'></i></button>
           <ul className="notification-area pull-right">
             <li>
               <Link to = "/connexion" aria-expanded="true">
