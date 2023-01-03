@@ -19,9 +19,7 @@ function Sidebar() {
   const handleClickProduct = () => {
     if (clickProduct === false) {
       setClickProduct(true)
-      setClickOption(false)
       setclickCompte(false)
-      setClickSetting(false)
     } else
       setClickProduct(false)
   }
@@ -29,9 +27,7 @@ function Sidebar() {
   const handleclickCompte = () => {
     if (clickCompte === false) {
       setclickCompte(true)
-      setClickOption(false)
       setClickProduct(false)
-      setClickSetting(false)
     } else
       setclickCompte(false)
   }
