@@ -6,6 +6,11 @@
   font-size: 14pt;
   border-radius: 50px;
 }
+@media (max-width: 768px) {
+  .Axel form {
+    width: 100%;
+  }
+}
 .Axel form h2 {
   margin-bottom: 6%;
   margin-top: -3%;
