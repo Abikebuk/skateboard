@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import * as url from './var.js'
 import './Sidebar.scss'
 import '../App.css'
@@ -6,11 +6,25 @@ import '../App.css'
 import {
   Link,
 } from 'react-router-dom'
+import axios from 'axios'
 
 function Sidebar() {
   const [clickProduct, setClickProduct] = useState(false)
   const [clickCompte, setclickCompte] = useState(false)
 
+  const [categories, setCategories] = useState([])
+
+  useEffect(() => {
+    axios({
+      method: 'GET',
+      url: process.env.REACT_APP_BACK_URL + '/api/categories?fields[0]=nomCategorie',
+    }).then((res) => {
+      if (res != null) {
+        const result = res.data.data.map((elem) => elem.attributes.nomCategorie)
+        setCategories(result)
+      }
+    })
+  })
   const handleClickProduct = () => {
     if (clickProduct === false) {
       setClickProduct(true)
@@ -57,14 +71,21 @@ function Sidebar() {
                     </div>
                   </div>
                 </div>
-            </div>
-            <br/>
+              </div>
+              <br/>
               <nav>
                 <ul className="metismenu" id="menu">
                   <li onClick={handleClickProduct} className={clickProduct ? 'active' : ''}>
                     <a href="javascript:void(0)" aria-expanded="true"><i className="ti-dashboard"></i><span>Les Produits</span></a>
                     <ul className={clickProduct ? 'collapse in' : 'collapse'}>
-                      <Link to={url.products}>Liste des produits</Link>
+                      <li key={'all'}>
+                        <Link to={url.products}>Liste des produits</Link>
+                      </li>
+                      {
+                        categories.map((cat) => <li key={cat}><Link to={''}>
+                          {cat.endsWith('s') ? cat : cat+'s'}
+                        </Link></li>)
+                      }
                     </ul>
                   </li>
                   {/* AFFICHER SEULEMENT QUAND LE CLIENT EST CONNECTE*/}
