@@ -20,7 +20,7 @@ function Sidebar() {
       url: process.env.REACT_APP_BACK_URL + '/api/categories?fields[0]=nomCategorie',
     }).then((res) => {
       if (res != null) {
-        const result = res.data.data.map((elem) => elem.attributes.nomCategorie)
+        const result = res.data.data.map((elem) => ({name : elem.attributes.nomCategorie, id: elem.id}) )
         setCategories(result)
       }
     })
@@ -77,9 +77,11 @@ function Sidebar() {
                         <Link to={url.products}>Liste des produits</Link>
                       </li>
                       {
-                        categories.map((cat) => <li key={cat}><Link to={''}>
-                          {cat.endsWith('s') ? cat : cat+'s'}
-                        </Link></li>)
+                        categories.map((cat) => <li key={cat.id}>
+                          <Link to={`/category/${cat.id}`}>
+                            {cat.name.endsWith('s') ? cat.name : cat.name+'s'}
+                          </Link>
+                        </li>)
                       }
                     </ul>
                   </li>
