@@ -22,11 +22,12 @@ function App() {
           <Route path="/cgv" element={<Menus T={Cgv} />} />
           <Route path="/connexion" element={<Menus T={Connexion} />} />
           <Route path="/" element={ <Home />}/>
-          <Route path={'/products'} element={<Menus T={ProductListPage}/>}/>
+          <Route path={'/products'} element={<Menus T={ ProductListPage } />} />
           {/* <Route path="/panier" element={ <Panier />}/>*/}
           <Route path="/inscription" element={ <Menus T={Inscription} />}/>
           <Route path={'/product/:id'} element={<Menus T={ProductPage} />} />
           <Route path={'/content'} element={<Menus T={ProductListPage}/>}/>
+          <Route path={'/category/:id'} element={<Menus T={ProductListPage}/>}/>
         </Routes>
       </Router>
     </div>

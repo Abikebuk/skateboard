@@ -1,11 +1,12 @@
 import '../include/Cgv.scss'
 import ProductList from '../include/ProductList'
-import Sidebar from '../include/Sidebar'
-import Header from './Header'
 import axios from 'axios'
 import {useEffect, useState} from 'react'
+import {useParams} from 'react-router-dom'
 
 export default function ProductListPage() {
+  const params = useParams()
+  console.log(params)
   const [products, setProducts] = useState([])
   const [loaded, setLoaded] = useState(false)
   const selectFilter = (e) => {
@@ -24,23 +25,25 @@ export default function ProductListPage() {
         break
     }
     setProducts([...res])
-    console.log(products)
   }
   useEffect(() => {
-    if (!loaded) {
+      const url = process.env.REACT_APP_BACK_URL +
+      '/api/produits?fields[0]=titre&fields[1]=prix&fields[2]=description&populate[0]=image&populate[1]=marque.logo&populate[2]=categories' +
+        (params.id == null ? '' : `&filters[categories][id][$eq]=${params.id}`)
       console.log('loading products...')
+      console.log(url)
       axios(
           {
             method: 'GET',
-            url: process.env.REACT_APP_BACK_URL + '/api/produits?fields[0]=titre&fields[1]=prix&fields[2]=description&populate[0]=image&populate[1]=marque.logo',
+            url: url
+            ,
           },
       ).then((res) => {
-        console.log(res.data)
         setProducts(res.data.data)
       })
       setLoaded(true)
-    }
-  })
+    console.log(products)
+  }, [params.id])
   return (
     <div id={'products'}>
       <div className={'container-fluid p-0'}>
