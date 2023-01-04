@@ -25,6 +25,7 @@
   transition: all 0.3s ease 0s;
   @include media-breakpoint-down(lg){
     width: 200px;
+    overflow-y: scroll;
   }
 }
 

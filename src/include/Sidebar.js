@@ -93,7 +93,7 @@ function Sidebar() {
                     </ul>
                   </li>
                   <li>
-                    <Link to = "/#" aria-expanded="true"><i className="ti-layout-sidebar-left"></i><span>Nous Contacter</span></Link>
+                    <Link to = "/contact" aria-expanded="true"><i className="ti-layout-sidebar-left"></i><span>Nous Contacter</span></Link>
                   </li>
                   <li>
                     <Link to = "/cgv" aria-expanded="true"><i className="fa fa-table"></i><span>Condition Générale Vente</span></Link>
