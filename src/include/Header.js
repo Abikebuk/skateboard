@@ -34,7 +34,7 @@ class Header extends Component {
                   <img src={process.env.PUBLIC_URL + '/account.png'} />
                 </Link>
               </div>
-              <div className={'col-auto d-md-block icon'}>
+              <div className={'col-auto'}>
                 <Link to = "/panier" aria-expanded="true">
                   <img src={process.env.PUBLIC_URL + '/panier.png'} />
                 </Link>
