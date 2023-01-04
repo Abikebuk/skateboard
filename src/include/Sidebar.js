@@ -50,11 +50,6 @@ function Sidebar() {
                         <img src={process.env.PUBLIC_URL + '/account.png'} />
                       </Link>
                     </div>
-                    <div className={'col-auto d-md-none icon'}>
-                      <Link to = "/panier" aria-expanded="true">
-                        <img src={process.env.PUBLIC_URL + '/panier.png'} />
-                      </Link>
-                    </div>
                   </div>
                 </div>
             </div>
