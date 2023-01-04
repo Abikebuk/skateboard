@@ -29,6 +29,7 @@ function App() {
           <Route path={'/product/:id'} element={<Menus T={ProductPage} />} />
           <Route path={'/content'} element={<Menus T={ProductListPage}/>}/>
           <Route path={'/contact'} element={<Menus T={Contact}/>}/>
+          <Route path={'/category/:id'} element={<Menus T={ProductListPage} />} />
         </Routes>
       </Router>
     </div>
