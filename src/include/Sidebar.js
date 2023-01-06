@@ -1,18 +1,27 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import * as url from './var.js'
 import './Sidebar.scss'
 import '../App.css'
 
 import {
-  Link,
+  Link, useNavigate,
 } from 'react-router-dom'
 import axios from 'axios'
+import AuthenticationContext from '../AuthenticationContext'
 
 function Sidebar() {
+  const navigate = useNavigate()
+  const context = useContext(AuthenticationContext)
   const [clickProduct, setClickProduct] = useState(false)
   const [clickCompte, setclickCompte] = useState(false)
-
   const [categories, setCategories] = useState([])
+
+  const disconnect = () =>{
+    window.localStorage.removeItem("authToken", null)
+    window.localStorage.removeItem('username', null)
+    context.setIsAuthenticated(false)
+    navigate('/')
+  }
 
   useEffect(() => {
     axios({
@@ -24,7 +33,7 @@ function Sidebar() {
         setCategories(result)
       }
     })
-  })
+  }, [context.isAuthenticated])
   const handleClickProduct = () => {
     if (clickProduct === false) {
       setClickProduct(true)
@@ -57,16 +66,30 @@ function Sidebar() {
           <div className="main-menu">
             <div className="menu-inner">
               <div className={'container-fluid'}>
-                <div className='img_icon'>
-                  <div className={'row'}>
-                    <div className={'col-auto d-md-none icon'}>
-                      <Link to = "/connexion" aria-expanded="true">
-                        <img src={process.env.PUBLIC_URL + '/account.png'} />
-                      </Link>
+                  <div className={'row justify-content-center'}>
+                    <div className={'col-auto d-md-block icon'}>
+                      <div id={'user-connection-block'} className={context.isAuthenticated ? 'authenticated' : null}>
+                        <Link to={context.isAuthenticated ? '/personal' : '/connexion'} aria-expanded="true">
+                          <img src={process.env.PUBLIC_URL + '/account.png'}/>
+                          {
+                            context.isAuthenticated ?
+                              <span>{window.localStorage.getItem("username")}</span> :
+                              null
+                          }
+                        </Link>
+                      </div>
+                    </div>
+                    <div id={"sidebar-disconnect"}>
+                      {
+                        context.isAuthenticated ?
+                            <ul className={'p-0'}>
+                              <li onClick={disconnect}><span>Se déconnecter</span></li>
+                            </ul> :
+                          null
+                      }
                     </div>
                   </div>
                 </div>
-              </div>
               <br/>
               <nav>
                 <ul className="metismenu" id="menu">

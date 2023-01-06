@@ -192,6 +192,19 @@
   color: #fff;
 }
 
-.img_icon {
-  margin-left: 100px;
+#sidebar-disconnect{
+  margin: 14px 0;
+  color: #8d97ad;
+  ul{
+    margin: 0
+  }
+  li{
+    text-align: center;
+    transition: all 0.3s ease 0s;
+    &:hover{
+      color: white;
+      transition: all 0.3s ease 0s;
+    }
+  }
+
 }
