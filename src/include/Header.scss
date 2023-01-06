@@ -76,3 +76,41 @@ img {
     display: none;
   }
 }
+#user-connection-block{
+  a{
+    color: #dadada;
+    text-decoration: none;
+  }
+  #user-connection-block-dropdown{
+    z-index: 99;
+    display: none;
+    position: absolute;
+    background-color: #0a53be;
+    color: white;
+    &:hover{
+      display: block;
+    }
+    ul{
+      padding: 10px;
+      margin:0 ;
+      span {
+        &:hover{
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+
+  &:hover{
+    #user-connection-block-dropdown{
+      display: block;
+    }
+    a{
+      color: white;
+      font-weight: bold;
+    }
+
+  }
+}
+
