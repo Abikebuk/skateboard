@@ -68,7 +68,7 @@ function Sidebar() {
             <div className="menu-inner">
               <div className={'container-fluid'}>
                   <div className={'row justify-content-center'}>
-                    <div className={'col-auto d-md-block icon'}>
+                    <div className={'col-auto d-md-none icon'}>
                       <div id={'user-connection-block'} className={context.isAuthenticated ? 'authenticated' : null}>
                         <Link to={context.isAuthenticated ? '/personal' : '/connexion'} aria-expanded="true">
                           <img src={process.env.PUBLIC_URL + '/account.png'}/>
@@ -80,7 +80,7 @@ function Sidebar() {
                         </Link>
                       </div>
                     </div>
-                    <div id={"sidebar-disconnect"}>
+                    <div id={"sidebar-disconnect"} className={"d-md-none"}>
                       {
                         context.isAuthenticated ?
                             <ul className={'p-0'}>
