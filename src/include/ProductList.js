@@ -9,19 +9,33 @@ export default function ProductList({products}) {
         <div className={'row'}>
           {
             products.map((data) => {
-              let productImage = data.attributes.image.data.attributes.formats.thumbnail.url
+              if(data == null) return null
+              console.log(data)
+              let ref = data.attributes.ref ?? "";
+              let id = data.id ?? ""
+              let title = data.attributes.titre ?? ""
+              let description = data.attributes.description ?? ""
+              let productImage = data.attributes.image.data.attributes.formats.thumbnail ?
+                data.attributes.image.data.attributes.formats.thumbnail.url :
+                ""
+              let price = data.attributes.prix ?? ""
+              let brandLogo = data.attributes.marque.data ?
+                data.attributes.marque.data.attributes.logo.data.attributes.formats.thumbnail.url :
+                ""
+              if (data.attributes.image.data.attributes.formats.thumbnail)
+                productImage = data.attributes.image.data.attributes.formats.thumbnail.url
               if (data.attributes.image.data.attributes.formats.small) {
                 productImage = data.attributes.image.data.attributes.formats.small.url
               }
               return (
-                <div className={'col-md-6 col-lg-4 col-xl-3 p-0'} key={data.attributes.ref}>
+                <div className={'col-md-6 col-lg-4 col-xl-3 p-0'} key={ref}>
                   <ProductCard
-                    id={data.id}
-                    title={data.attributes.titre}
-                    description={data.attributes.description}
-                    productImage={data.attributes.image.data.attributes.formats.thumbnail.url}
-                    price={data.attributes.prix}
-                    brandLogo={data.attributes.marque.data.attributes.logo.data.attributes.formats.thumbnail.url}
+                    id={id}
+                    title={title}
+                    description={description}
+                    productImage={productImage}
+                    price={price}
+                    brandLogo={brandLogo}
                   />
                 </div>
               )
