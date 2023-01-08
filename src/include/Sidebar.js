@@ -19,6 +19,7 @@ function Sidebar() {
   const disconnect = () =>{
     window.localStorage.removeItem("authToken", null)
     window.localStorage.removeItem('username', null)
+    window.localStorage.removeItem('id', null)
     context.setIsAuthenticated(false)
     navigate('/')
   }

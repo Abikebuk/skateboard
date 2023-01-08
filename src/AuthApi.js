@@ -5,6 +5,7 @@ import {useNavigate} from 'react-router-dom'
 export function authenticate(identifier, password) {
   console.log(window.localStorage.getItem("authToken"))
   console.log(window.localStorage.getItem("username"))
+  console.log(window.localStorage.getItem("id"))
     return axios
         .post(process.env.REACT_APP_BACK_URL + '/api/auth/local',
           {
@@ -15,6 +16,7 @@ export function authenticate(identifier, password) {
         .then(data => {
             window.localStorage.setItem("authToken", data.jwt)
             window.localStorage.setItem('username', data.user.username)
+            window.localStorage.setItem('id', data.user.id)
             axios.defaults.headers["Authorization"] = "Bearer " + data.jwt
             console.log(isAuthenticated())
 
