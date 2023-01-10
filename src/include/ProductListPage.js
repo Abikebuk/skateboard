@@ -8,7 +8,6 @@ export default function ProductListPage() {
   const params = useParams()
   console.log(params)
   const [products, setProducts] = useState([])
-  const [loaded, setLoaded] = useState(false)
   const selectFilter = (e) => {
     console.log(e.target.value)
     let res
@@ -41,7 +40,6 @@ export default function ProductListPage() {
       ).then((res) => {
         setProducts(res.data.data)
       })
-      setLoaded(true)
     console.log(products)
   }, [params.id])
   return (

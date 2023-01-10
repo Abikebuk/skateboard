@@ -12,6 +12,7 @@ export default function ProductPage() {
   const [brandLogo, setBrandLogo] = useState('')
   const [brandDescription, setBrandDescription] = useState('')
   const [description, setDescription] = useState('')
+  const [price, setPrice] = useState(0)
   const params = useParams()
   const id = params.id
 
@@ -27,11 +28,19 @@ export default function ProductPage() {
     }).then((res) =>{
       setData(res.data.data.attributes)
       if (data != null) {
-        setTitle(data.titre)
-        setImage(process.env.REACT_APP_BACK_URL + data.image.data.attributes.formats.thumbnail.url)
-        setBrandLogo(process.env.REACT_APP_BACK_URL + data.marque.data.attributes.logo.data.attributes.formats.thumbnail.url)
-        setBrandDescription(data.marque.data.attributes.description)
-        setDescription(data.description)
+        console.log(data)
+        setTitle(data.titre ?? "")
+        try{
+          setBrandLogo(process.env.REACT_APP_BACK_URL + data.marque.data.attributes.logo.data.attributes.formats.thumbnail.url ?? "")
+        }catch{}
+        try{
+          setImage(process.env.REACT_APP_BACK_URL + data.image.data.attributes.formats.thumbnail.url ?? "")
+        }catch {}
+        try{
+          setBrandDescription(data.marque.data.attributes.description ?? "")
+        }catch {}
+        setDescription(data.description ?? "")
+        setPrice(data.prix ?? "")
       }
     })
   })
@@ -65,7 +74,7 @@ export default function ProductPage() {
                 <div id={'side-panel'} className={'col-md-12 col-lg-4'}>
                   <div id={'side-panel-content'}>
                     <div id={'side-panel-price'}>
-                      <span>Prix :</span>
+                      <span>Prix : {new Intl.NumberFormat('FR-fr', { style: 'currency', currency: 'EUR' }).format(price)}</span>
                     </div>
                     <div id={'side-panel-add-to-cart'}>
                       <button>Ajouter au panier</button>
