@@ -9,18 +9,32 @@ function DeliveryAddress() {
     const [zipCode, setZipCode] = useState('');
     const [city, setCity] = useState('');
     const [country, setCountry] = useState('');
-    const navigate = useNavigate()
-    /*const context = useContext(AuthenticationContext)
-    useEffect(() =>{
-      console.log(context.isAuthenticated)
-    }, [context.isAuthenticated])
-    const disconnect = () =>{
-      window.localStorage.removeItem("authToken", null)
-      window.localStorage.removeItem('username', null)
-      window.localStorage.removeItem('id', null)
-      context.setIsAuthenticated(false)
-      navigate('/')
-    }*/
+    const [id, setId] = useState(null);
+    const [addressChanged, setAddressChanged] = useState(false);
+    
+    const idUser = window.localStorage.getItem("id");
+    const [loaded, setLoaded] = useState(false);
+    
+
+    useEffect(()=> {
+        if (!loaded){
+            axios.get(process.env.REACT_APP_BACK_URL + `/api/users/${idUser}?populate[0]=clientAddress`)
+            .catch((error) => {
+                console.log(error)
+            })
+            .then((res) => {
+                console.log(res)
+                const data = res.data.clientAddress
+                setId(data.id)
+                setStreet(data.rue)
+                setZipCode(data.cdPostal)
+                setCity(data.ville)
+                setCountry(data.pays)
+            })
+            setLoaded(true)
+        }
+    })
+
 
     // function to update state of name with
     // value enter by user in form
@@ -41,7 +55,7 @@ function DeliveryAddress() {
     // below function will be called when user
     // click on submit button .
     const handleSubmit = (e) => {
-        axios.post(process.env.REACT_APP_BACK_URL + "/api/adresse-clients",
+        axios.put(process.env.REACT_APP_BACK_URL + `/api/adresse-clients/${id}`,
             {
                 data:{
                     rue: street,
@@ -50,33 +64,9 @@ function DeliveryAddress() {
                     pays: country
                 }
             }).then((res) => {
-                alert("Saisie de vos données validées")
-                console.log("TEST")
-                navigate("/")
+                setAddressChanged(true)
             }).catch((error)=>{
-                const resp = error.response.data.error
-                console.log(resp)
-                switch (resp.status){
-                    case 400:
-                        switch (resp.message) {
-                            case "password must be at least 6 characters":
-                                alert("Le mot de passe doit contenir plus de 6 caractères")
-                                break;
-                            case "Email already taken":
-                                alert("Email déjà existant")
-                                break;
-                            case "This attribute must be unique":
-                                alert("Username déjà existant")
-                                break;
-                            default:
-                                alert("400")
-                            break;
-                        }
-                        break
-                    default:
-                        alert("Une erreur s'est produite")
-                    break;
-                }
+                console.log(error)
             })
         e.preventDefault();
     }
@@ -91,6 +81,9 @@ function DeliveryAddress() {
                     <header className="App-header">
                         <form onSubmit={(e) => { handleSubmit(e) }}>
                             <h2> Mes Données de Livraison</h2>
+                            {addressChanged ?
+                                <div>Adresse changée</div>:
+                                null}
                             <div className='form-group'>
                                 <label> Rue: </label>
                                 <input type="text" className="form-control" value={street} required onChange={(e) => { handleStreetChange(e) }} /><br />
