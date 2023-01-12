@@ -117,7 +117,6 @@ function Sidebar() {
                             <li><a href="#">Mes Données Personnelles</a></li>
                             <li><a href="/delivery">Mes Données de Livraison</a></li>
                             <li><a href="#">Mes Commandes</a></li>
-                            <li><a href="#">Suivi des Commandes</a></li>
                           </ul>
                         </li> 
                         : null
