@@ -145,14 +145,3 @@ function hideMenu() {
 export default Sidebar
 
 
-/*
-                  <li onClick={handleclickCompte} className={clickCompte ? 'active' : ''}>
-                    <a href="javascript:void(0)" aria-expanded="true"><i className="ti-palette"></i><span>Mon Compte</span></a>
-                    <ul className={clickCompte ? 'collapse in' : 'collapse'}>
-                      <li><a href="#">Mes Données Personnelles</a></li>
-                      <li><a href="/delivery">Mes Données de Livraison</a></li>
-                      <li><a href="#">Mes Commandes</a></li>
-                      <li><a href="#">Suivi des Commandes</a></li>
-                    </ul>
-                  </li>
-*/
