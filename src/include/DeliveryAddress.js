@@ -1,7 +1,5 @@
-import React, {useContext, useEffect, useState} from 'react'
-import { useNavigate } from "react-router-dom";
+import React, {useEffect, useState} from 'react'
 import '../include/Inscription.scss'
-import AuthenticationContext from '../AuthenticationContext'
 import axios from 'axios';
 
 function DeliveryAddress() {   
@@ -18,18 +16,21 @@ function DeliveryAddress() {
 
     useEffect(()=> {
         if (!loaded){
-            axios.get(process.env.REACT_APP_BACK_URL + `/api/users/${idUser}?populate[0]=clientAddress`)
+            axios.get(process.env.REACT_APP_BACK_URL + `/api/users/${idUser}?populate[0]=adresse_client`)
             .catch((error) => {
                 console.log(error)
             })
             .then((res) => {
                 console.log(res)
-                const data = res.data.clientAddress
-                setId(data.id)
-                setStreet(data.rue)
-                setZipCode(data.cdPostal)
-                setCity(data.ville)
-                setCountry(data.pays)
+                const data = res.data.adresse_client
+                console.log(data)
+                if (data){
+                    setId(data.id)
+                    setStreet(data.rue)
+                    setZipCode(data.cdPostal)
+                    setCity(data.ville)
+                    setCountry(data.pays)
+                }
             })
             setLoaded(true)
         }
@@ -55,7 +56,7 @@ function DeliveryAddress() {
     // below function will be called when user
     // click on submit button .
     const handleSubmit = (e) => {
-        axios.put(process.env.REACT_APP_BACK_URL + `/api/adresse-clients/${id}`,
+            axios.put(process.env.REACT_APP_BACK_URL + `/api/adresse-clients/${id}`,
             {
                 data:{
                     rue: street,
@@ -64,8 +65,10 @@ function DeliveryAddress() {
                     pays: country
                 }
             }).then((res) => {
+                console.log("VALIDATION INSERT")
                 setAddressChanged(true)
             }).catch((error)=>{
+                console.log("ERREUR INSERT")
                 console.log(error)
             })
         e.preventDefault();
@@ -82,8 +85,9 @@ function DeliveryAddress() {
                         <form onSubmit={(e) => { handleSubmit(e) }}>
                             <h2> Mes Données de Livraison</h2>
                             {addressChanged ?
-                                <div>Adresse changée</div>:
-                                null}
+                                <div>Adresse changée</div>
+                                :null
+                            }
                             <div className='form-group'>
                                 <label> Rue: </label>
                                 <input type="text" className="form-control" value={street} required onChange={(e) => { handleStreetChange(e) }} /><br />
