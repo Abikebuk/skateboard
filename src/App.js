@@ -16,6 +16,7 @@ import Menus from './include/Menus'
 import Contact from './include/Contact'
 import * as AuthApi from './AuthApi'
 import AuthenticationContext from './AuthenticationContext'
+import DeliveryAddress from './include/DeliveryAddress'
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Router>
           <Routes>
             <Route path="/cgv" element={<Menus T={Cgv} />} />
+            <Route path="/delivery" element={<Menus T={DeliveryAddress} />} />
             <Route path="/connexion" element={<Menus T={Connexion} />} />
             <Route path="/" element={ <Home />}/>
             <Route path={'/products'} element={<Menus T={ProductListPage}/>}/>

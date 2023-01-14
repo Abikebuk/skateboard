@@ -46,6 +46,7 @@ function Inscription() {
             }).then((res) => {
                 console.log("TEST")
                 navigate("/")
+
             }).catch((error)=>{
                 const resp = error.response.data.error
                 console.log(resp)
