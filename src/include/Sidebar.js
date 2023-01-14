@@ -135,13 +135,14 @@ function Sidebar() {
         <div id={'sidebar-menu-hide'} className={'col p-0'} onClick={hideMenu}/>
       </div>
     </div>
-
   )
 }
+
 function hideMenu() {
   document.getElementById('sidebar-menu-wrapper').classList.remove('active')
   document.getElementById('sidebar-menu-hide').classList.remove('active')
 }
+
 export default Sidebar
 
 

@@ -1,5 +1,6 @@
 import './ProductCard.sass'
 import {Link} from 'react-router-dom'
+import {addCartItem} from '../CartHandler'
 
 const formatPrice = (price) =>
   new Intl.NumberFormat(
@@ -9,6 +10,9 @@ const formatPrice = (price) =>
 
 // eslint-disable-next-line react/prop-types
 export default function ProductCard({id, title, description, price, brandLogo, productImage}) {
+  function handleAddToCartClick(){
+    addCartItem(id)
+  }
   return (
     <div className={'product-card-wrapper'}>
       <div className="product-card">
@@ -40,7 +44,7 @@ export default function ProductCard({id, title, description, price, brandLogo, p
             </div>
           </div>
         </Link>
-        <div className={'col-auto footer'}>
+        <div className={'col-auto footer'} onClick={handleAddToCartClick}>
           <span>Ajouter au panier</span>
         </div>
       </div>
