@@ -4,6 +4,8 @@ import {useEffect, useState} from 'react'
 import axios from 'axios'
 import Sidebar from './Sidebar'
 import Header from './Header'
+import {addCartItem} from '../CartHandler'
+
 
 export default function ProductPage() {
   const [data, setData] = useState(null)
@@ -16,8 +18,8 @@ export default function ProductPage() {
   const params = useParams()
   const id = params.id
 
-  if (data != null) {
-
+  function handleAddCartClick(e){
+    addCartItem(id)
   }
 
   useEffect(() =>{
@@ -28,7 +30,6 @@ export default function ProductPage() {
     }).then((res) =>{
       setData(res.data.data.attributes)
       if (data != null) {
-        console.log(data)
         setTitle(data.titre ?? "")
         try{
           setBrandLogo(process.env.REACT_APP_BACK_URL + data.marque.data.attributes.logo.data.attributes.formats.thumbnail.url ?? "")
@@ -77,7 +78,7 @@ export default function ProductPage() {
                       <span>Prix : {new Intl.NumberFormat('FR-fr', { style: 'currency', currency: 'EUR' }).format(price)}</span>
                     </div>
                     <div id={'side-panel-add-to-cart'}>
-                      <button>Ajouter au panier</button>
+                      <button onClick={handleAddCartClick}>Ajouter au panier</button>
                     </div>
                   </div>
                 </div>

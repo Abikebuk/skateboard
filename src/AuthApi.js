@@ -19,7 +19,6 @@ export function authenticate(identifier, password) {
             window.localStorage.setItem('id', data.user.id)
             axios.defaults.headers["Authorization"] = "Bearer " + data.jwt
             console.log(isAuthenticated())
-
     })
 }
 
