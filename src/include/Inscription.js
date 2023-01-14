@@ -49,7 +49,7 @@ function Inscription() {
                 city: city
             }).then((res) => {
                 console.log("TEST")
-                navigate("/")
+                navigate("/connexion")
 
             }).catch((error)=>{
                 const resp = error.response.data.error
