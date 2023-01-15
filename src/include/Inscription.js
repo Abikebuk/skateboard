@@ -12,23 +12,22 @@ function Inscription() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confPassword, setConfPassword] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [street, setStreet] = useState('');
+    const [zipCode, setZipCode] = useState('');
+    const [city, setCity] = useState('');
     const navigate = useNavigate();
 
-    // function to update state of name with
-    // value enter by user in form
     const handleChange = (e) => { setName(e.target.value); }
-
-    // function to update state of email with value
-    // enter by user in form
     const handleEmailChange = (e) => { setEmail(e.target.value); }
-
-    // function to update state of password with
-    // value enter by user in form
-
     const handlePasswordChange = (e) => { setPassword(e.target.value); }
-    // function to update state of confirm password
-    // with value enter by user in form
     const handleConfPasswordChange = (e) => { setConfPassword(e.target.value); }
+    const handleLastName = (e) => { setLastName(e.target.value); }
+    const handleFirstName = (e) => { setFirstName(e.target.value); }
+    const handleStreet = (e) => { setStreet(e.target.value); }
+    const handleZipCode = (e) => { setZipCode(e.target.value); }
+    const handleCity = (e) => { setCity(e.target.value); }
 
     // below function will be called when user
     // click on submit button .
@@ -42,10 +41,15 @@ function Inscription() {
                 username: name,
                 email: email,
                 password: password,
-                dtInscription: Date.now()
+                dtInscription: Date.now(),
+                lastname: lastName,
+                firstname: firstName,
+                street: street,
+                zipcode: zipCode,
+                city: city
             }).then((res) => {
                 console.log("TEST")
-                navigate("/")
+                navigate("/connexion")
 
             }).catch((error)=>{
                 const resp = error.response.data.error
@@ -87,6 +91,7 @@ function Inscription() {
                         <form onSubmit={(e) => { handleSubmit(e) }}>
                             <h2> INSCRIPTION</h2>
                             <div className='form-group'>
+                                <h3>Données de Connexion</h3>
                                 <label> Username: </label>
                                 <input type="text" className="form-control" value={name} required onChange={(e) => { handleChange(e) }} /><br />
                             </div>
@@ -101,6 +106,27 @@ function Inscription() {
                             <div className='form-group'>
                                 <label>Confirm Password:</label>
                                 <input type="password" className="form-control" value={confPassword} required onChange={(e) => { handleConfPasswordChange(e) }} /><br />
+                            </div>
+                            <div className='form-group'>
+                                <h3 className='delivery'>Données de Livraison</h3>
+                                <label>Nom:</label>
+                                <input type="text" className="form-control" value={lastName} required onChange={(e) => { handleLastName(e) }} /><br />
+                            </div>
+                            <div className='form-group'>
+                                <label>Prénom:</label>
+                                <input type="text" className="form-control" value={firstName} required onChange={(e) => { handleFirstName(e) }} /><br />
+                            </div>
+                            <div className='form-group'>
+                                <label>Adresse:</label>
+                                <input type="text" className="form-control" value={street} required onChange={(e) => { handleStreet(e) }} /><br />
+                            </div>
+                            <div className='form-group'>
+                                <label>Code Postal:</label>
+                                <input type="text" className="form-control" maxLength={"5"} value={zipCode} required onChange={(e) => { handleZipCode(e) }} /><br />
+                            </div>
+                            <div className='form-group'>
+                                <label>Ville:</label>
+                                <input type="text" className="form-control" value={city} required onChange={(e) => { handleCity(e) }} /><br />
                             </div>
                             <input type="submit" class="boutonVal" value="VALIDER" />
                         </form>

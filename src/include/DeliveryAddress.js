@@ -1,81 +1,63 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import '../include/Inscription.scss'
 import axios from 'axios';
 
-function DeliveryAddress() {   
+function DeliveryAddress() {
+    const [lastName, setLastName] = useState('');
+    const [firstName, setFirstName] = useState('');
     const [street, setStreet] = useState('');
     const [zipCode, setZipCode] = useState('');
     const [city, setCity] = useState('');
-    const [country, setCountry] = useState('');
-    const [id, setId] = useState(null);
     const [addressChanged, setAddressChanged] = useState(false);
-    
+
     const idUser = window.localStorage.getItem("id");
     const [loaded, setLoaded] = useState(false);
-    
 
-    useEffect(()=> {
-        if (!loaded){
-            axios.get(process.env.REACT_APP_BACK_URL + `/api/users/${idUser}?populate[0]=adresse_client`)
-            .catch((error) => {
-                console.log(error)
-            })
-            .then((res) => {
-                console.log(res)
-                const data = res.data.adresse_client
-                console.log(data)
-                if (data){
-                    setId(data.id)
-                    setStreet(data.rue)
-                    setZipCode(data.cdPostal)
-                    setCity(data.ville)
-                    setCountry(data.pays)
-                }
-            })
+
+    useEffect(() => {
+        if (!loaded) {
+            axios.get(process.env.REACT_APP_BACK_URL + `/api/users/${idUser}`)
+                .catch((error) => {
+                    console.log(error)
+                })
+                .then((res) => {
+                    console.log(res)
+                    const datas = res.data
+                    setLastName(datas.lastname)
+                    setFirstName(datas.firstname)
+                    setStreet(datas.street)
+                    setZipCode(datas.zipcode)
+                    setCity(datas.city)
+                })
             setLoaded(true)
         }
     })
 
+    const handleLastName = (e) => { setLastName(e.target.value); }
+    const handleFirstName = (e) => { setFirstName(e.target.value); }
+    const handleStreet = (e) => { setStreet(e.target.value); }
+    const handleZipCode = (e) => { setZipCode(e.target.value); }
+    const handleCity = (e) => { setCity(e.target.value); }
 
-    // function to update state of name with
-    // value enter by user in form
-    const handleStreetChange = (e) => { setStreet(e.target.value); }
-
-    // function to update state of email with value
-    // enter by user in form
-    const handleZipCodeChange = (e) => { setZipCode(e.target.value); }
-
-    // function to update state of password with
-    // value enter by user in form
-
-    const handleCityChange = (e) => { setCity(e.target.value); }
-    // function to update state of confirm password
-    // with value enter by user in form
-    const handleCountryChange = (e) => { setCountry(e.target.value); }
-
-    // below function will be called when user
-    // click on submit button .
     const handleSubmit = (e) => {
-            axios.put(process.env.REACT_APP_BACK_URL + `/api/adresse-clients/${id}`,
+        axios.put(process.env.REACT_APP_BACK_URL + `/api/users/${idUser}`,
             {
-                data:{
-                    rue: street,
-                    cdPostal: zipCode,
-                    ville: city,
-                    pays: country
-                }
+                lastname: lastName,
+                firstname: firstName,
+                street: street,
+                zipcode: zipCode,
+                city: city
             }).then((res) => {
-                console.log("VALIDATION INSERT")
+                console.log("TEST")
                 setAddressChanged(true)
-            }).catch((error)=>{
-                console.log("ERREUR INSERT")
+                console.res(res)
+
+            }).catch((error) => {
+                console.log("TEST")
                 console.log(error)
-            })
-        e.preventDefault();
+            }
+            )
     }
-    useEffect(() => {
-        console.log()
-    })
 
     return (
         <div className={'container-fluid m-0'}>
@@ -83,26 +65,30 @@ function DeliveryAddress() {
                 <div className="Axel">
                     <header className="App-header">
                         <form onSubmit={(e) => { handleSubmit(e) }}>
-                            <h2> Mes Données de Livraison</h2>
+                            <h1 className='delivery2'>Données de Livraison</h1>
                             {addressChanged ?
                                 <div>Adresse changée</div>
-                                :null
+                                : null
                             }
                             <div className='form-group'>
-                                <label> Rue: </label>
-                                <input type="text" className="form-control" value={street} required onChange={(e) => { handleStreetChange(e) }} /><br />
+                                <label>Nom:</label>
+                                <input type="text" className="form-control" value={lastName} required onChange={(e) => { handleLastName(e) }} /><br />
                             </div>
                             <div className='form-group'>
-                                <label>Code Postal: </label>
-                                <input type="text" className="form-control" maxLength={"5"} value={zipCode} required onChange={(e) => { handleZipCodeChange(e) }} /><br />
+                                <label>Prénom:</label>
+                                <input type="text" className="form-control" value={firstName} required onChange={(e) => { handleFirstName(e) }} /><br />
+                            </div>
+                            <div className='form-group'>
+                                <label>Adresse:</label>
+                                <input type="text" className="form-control" value={street} required onChange={(e) => { handleStreet(e) }} /><br />
+                            </div>
+                            <div className='form-group'>
+                                <label>Code Postal:</label>
+                                <input type="text" className="form-control" maxLength={"5"} value={zipCode} required onChange={(e) => { handleZipCode(e) }} /><br />
                             </div>
                             <div className='form-group'>
                                 <label>Ville:</label>
-                                <input type="text" className="form-control" value={city} required onChange={(e) => { handleCityChange(e) }} /><br />
-                            </div>
-                            <div className='form-group'>
-                                <label>Pays:</label>
-                                <input type="text" className="form-control" value={country} required onChange={(e) => { handleCountryChange(e) }} /><br />
+                                <input type="text" className="form-control" value={city} required onChange={(e) => { handleCity(e) }} /><br />
                             </div>
                             <input type="submit" class="boutonVal" value="VALIDER" />
                         </form>
