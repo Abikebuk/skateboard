@@ -63,7 +63,7 @@ function Header() {
               </div>
             </div>
             <div className={'col-auto'}>
-              <Link to="/panier" aria-expanded="true">
+              <Link to="/cart" aria-expanded="true">
                 <img src={process.env.PUBLIC_URL + '/panier.png'}/>
               </Link>
             </div>

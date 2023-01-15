@@ -17,6 +17,7 @@ import Contact from './include/Contact'
 import * as AuthApi from './AuthApi'
 import AuthenticationContext from './AuthenticationContext'
 import DeliveryAddress from './include/DeliveryAddress'
+import CartPage from './include/CartPage'
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
             <Route path={'/content'} element={<Menus T={ProductListPage}/>}/>
             <Route path={'/contact'} element={<Menus T={Contact}/>}/>
             <Route path={'/category/:id'} element={<Menus T={ProductListPage} />} />
+            <Route path={'/cart'} element={<Menus T={CartPage} />}/>
           </Routes>
         </Router>
       </div>
