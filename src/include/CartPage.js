@@ -3,11 +3,16 @@ import {getCart, getCartAttributes, getProductList, getTotalPrice} from '../Cart
 import axios from 'axios'
 import productListItem from './CartPageProductItem'
 import './CartPage.scss'
+import {useNavigate} from 'react-router-dom'
 export default function CartPage() {
   const [cart, setCart] = useState(getCart())
   const [cartAttributes, setCartAttributes] = useState([])
   const [loaded, setLoaded] = useState(false)
+  const navigate = useNavigate()
 
+  function handleValidateCartClick(){
+    navigate('/payment')
+  }
   useEffect(() =>{
     if(!loaded){
       getCartAttributes(cart).then(res => setCartAttributes(res))
@@ -21,7 +26,7 @@ export default function CartPage() {
         Total : {new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(getTotalPrice(cart, cartAttributes))}
       </div>
       <div className={'text-align-right'}>
-        <button>Valider le panier</button>
+        <button onClick={handleValidateCartClick}>Valider le panier</button>
       </div>
     </div>
   )

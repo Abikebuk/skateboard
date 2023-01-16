@@ -52,6 +52,10 @@ function save(cart){
   window.localStorage.setItem(key, JSON.stringify(cart))
 }
 
+export function clearCart(){
+  window.localStorage.setItem(key, JSON.stringify([]))
+}
+
 export function getCartAttributes(cart) {
   const idsParsing = cart.map((e, i) => `filters[id][$in][${i}]=${parseInt(e.id)}`)
   const uriParameters = idsParsing.join('&')
