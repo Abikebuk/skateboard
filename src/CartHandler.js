@@ -67,13 +67,14 @@ export function getCartAttributes(cart) {
     })
 }
 
-export function getProductList(cart, cartAttributes) {
+export function getProductList(cart, cartAttributes, editable = false) {
   return cart.map((e) => productListItem(
     e.id,
     cartAttributes.length > 0 ?
       (cartAttributes.find((attr) => attr.id === e.id)).attributes :
       null,
-    e.quantity))
+    e.quantity,
+    editable))
 }
 
 export function getTotalPrice(cart, cartAttributes){

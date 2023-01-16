@@ -21,7 +21,7 @@ export default function CartPage() {
   })
   return (
     <div id={"cart-page"}>
-      {getProductList(cart, cartAttributes)}
+      {getProductList(cart, cartAttributes, true)}
       <div id={'cart-total-price'} className={'text-align-right'}>
         Total : {new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(getTotalPrice(cart, cartAttributes))}
       </div>
