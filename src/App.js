@@ -18,6 +18,8 @@ import * as AuthApi from './AuthApi'
 import AuthenticationContext from './AuthenticationContext'
 import DeliveryAddress from './include/DeliveryAddress'
 import CartPage from './include/CartPage'
+import OrderConfirmed from './include/OrderConfirmed'
+import PaymentPage from './include/PaymentPage'
 
 
 function App() {
@@ -39,6 +41,8 @@ function App() {
             <Route path={'/contact'} element={<Menus T={Contact}/>}/>
             <Route path={'/category/:id'} element={<Menus T={ProductListPage} />} />
             <Route path={'/cart'} element={<Menus T={CartPage} />}/>
+            <Route path={'/oderConfirmed'} element={<Menus T={OrderConfirmed} />}/>
+            <Route path={'/payment'} element={<Menus T={PaymentPage} />}/>
           </Routes>
         </Router>
       </div>

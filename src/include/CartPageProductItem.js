@@ -3,7 +3,7 @@ import {removeItemFromCart, setQuantityOfCartItem} from '../CartHandler'
 import {Link} from 'react-router-dom'
 import {MeshDistortMaterial} from '@react-three/drei'
 
-export default function productListItem(id, productData, quantity){
+export default function productListItem(id, productData, quantity, editable){
   async function handleQuantityValueInputChange(e) {
     const re = /^[0-9]*$/
     if (new RegExp(re).exec(e.target.value)) {
@@ -61,10 +61,18 @@ export default function productListItem(id, productData, quantity){
 
           </div>
           <div className={'col-auto vertical-center p-0'}>
-            <div className={'product-quantity'}>
-              <span>Nombre</span>
-              <input type={'text'} value={quantityValue} onChange={handleQuantityValueInputChange}/>
-            </div>
+            {
+              editable ?
+                <div className={'product-quantity'}>
+                  <span>Nombre</span>
+                  <input type={'text'} value={quantityValue} onChange={handleQuantityValueInputChange}/>
+                </div> :
+                <div className={'product-quantity'}>
+                  <span>x{quantityValue}</span>
+                </div>
+
+            }
+
           </div>
           <div className={'col-2 vertical-center p-0'}>
             <div className={'product-total-price'}>
@@ -74,9 +82,14 @@ export default function productListItem(id, productData, quantity){
               }
             </div>
           </div>
-          <div className={'col-auto vertical-center p-0'}>
-            <button onClick={handleDeleteClick}>Supprimer</button>
-          </div>
+          {
+            editable ?
+            <div className={'col-auto vertical-center p-0'}>
+              <button onClick={handleDeleteClick}>Supprimer</button>
+            </div> :
+            null
+          }
+
         </div>
       </div>
     </div>
