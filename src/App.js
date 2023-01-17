@@ -6,7 +6,7 @@ import {
   Routes,
 } from 'react-router-dom'
 import './App.css'
-import Home from './products/Home'
+import Home from './include/Home'
 import Cgv from './include/Cgv'
 import Inscription from './include/Inscription'
 import ProductListPage from './include/ProductListPage'
@@ -32,9 +32,9 @@ function App() {
             <Route path="/cgv" element={<Menus T={Cgv} />} />
             <Route path="/delivery" element={<Menus T={DeliveryAddress} />} />
             <Route path="/connexion" element={<Menus T={Connexion} />} />
-            <Route path="/" element={ <Home />}/>
+            <Route path="/" element={<Menus T={Home} />} />
+            <Route path="/&:id" element={<Menus T={Home} />} />
             <Route path={'/products'} element={<Menus T={ProductListPage}/>}/>
-            {/* <Route path="/panier" element={ <Panier />}/>*/}
             <Route path="/inscription" element={ <Menus T={Inscription} />}/>
             <Route path={'/product/:id'} element={<Menus T={ProductPage} />}/>
             <Route path={'/content'} element={<Menus T={ProductListPage}/>}/>

@@ -3,7 +3,7 @@ import {removeItemFromCart, setQuantityOfCartItem} from '../CartHandler'
 import {Link} from 'react-router-dom'
 import {MeshDistortMaterial} from '@react-three/drei'
 
-export default function productListItem(id, productData, quantity, editable){
+export default function productListItem(id, productData, quantity, editable, callback){
   async function handleQuantityValueInputChange(e) {
     const re = /^[0-9]*$/
     if (new RegExp(re).exec(e.target.value)) {
@@ -29,6 +29,10 @@ export default function productListItem(id, productData, quantity, editable){
   const [deleted, setDeleted] = useState(false)
   useEffect(() =>{
     setQuantityOfCartItem(id, quantityValue)
+    if(callback) {
+      console.log("callback")
+      callback()
+    }
   }, [quantityValue])
 
 

@@ -13,10 +13,6 @@ export default function PaymentPage({price}) {
     getCartAttributes(cart).then((res) => setCartAttributes(res))
     setTotalPrice(getTotalPrice(cart, cartAttributes))
   }, [cart])
-  function handleChange(e){
-    setPriceTest(e.target.value)
-    console.log(priceTest)
-  }
   return (
     <div id={'payment-page'}>
       {getProductList(cart, cartAttributes)}

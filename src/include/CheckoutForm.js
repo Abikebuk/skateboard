@@ -1,10 +1,12 @@
 import React from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import axios from 'axios'
+import {useNavigate} from 'react-router-dom'
 
 export const CheckoutForm=({price})=>{
     const stripe = useStripe();
     const elements = useElements();
+    const navigate = useNavigate();
 
     const handleSubmit = async(event)=>{
         console.log(price)
