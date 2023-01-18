@@ -20,6 +20,7 @@ import DeliveryAddress from './include/DeliveryAddress'
 import CartPage from './include/CartPage'
 import OrderConfirmed from './include/OrderConfirmed'
 import PaymentPage from './include/PaymentPage'
+import PersonalData from './include/PersonalData'
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Routes>
             <Route path="/cgv" element={<Menus T={Cgv} />} />
             <Route path="/delivery" element={<Menus T={DeliveryAddress} />} />
+            <Route path="/personal" element={<Menus T={PersonalData} />} />
             <Route path="/connexion" element={<Menus T={Connexion} />} />
             <Route path="/" element={<Menus T={Home} />} />
             <Route path="/&:id" element={<Menus T={Home} />} />
