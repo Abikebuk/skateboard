@@ -28,6 +28,7 @@ export default function CartPage() {
     }
     console.log(getTotalPrice(cart, cartAttributes))
     setTotalPrice(getTotalPrice(cart, cartAttributes))
+    console.log(cart)
   },[cart])
   return (
     <div id={"cart-page"}>

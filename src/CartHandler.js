@@ -78,9 +78,11 @@ export function getProductList(cart, cartAttributes, editable = false, callback 
     callback))
 }
 
-export function getTotalPrice(cart, cartAttributes){
-  if(cartAttributes.length === 0) return
-  const cartMap = cart.map((e) => {
+export function getCartWithPrice(cart, cartAttributes){
+  if(!cart || !cartAttributes) return []
+  if(cart.length === 0 || cartAttributes.length === 0) return []
+  console.log(cartAttributes)
+  return cart.map((e) => {
       return (
         {
           id: e.id,
@@ -90,6 +92,11 @@ export function getTotalPrice(cart, cartAttributes){
       )
     }
   )
+}
+
+export function getTotalPrice(cart, cartAttributes){
+  if(cartAttributes.length === 0) return
+  const cartMap = getCartWithPrice(cart, cartAttributes)
   const totalMap = cartMap.map((e) => e.price * e.quantity)
   const total = totalMap.reduce(
     (acc, e) => acc + e,

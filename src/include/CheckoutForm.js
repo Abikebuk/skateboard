@@ -3,7 +3,7 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
 
-export const CheckoutForm=({price})=>{
+export const CheckoutForm=({price, cartWithPrice})=>{
     const stripe = useStripe();
     const elements = useElements();
     const navigate = useNavigate();
@@ -37,9 +37,53 @@ export const CheckoutForm=({price})=>{
                 });
                 if (response.data.success){
                     console.log("Payment réussi");
+                    axios.post(
+                      process.env.REACT_APP_BACK_URL + '/api/commandes',
+                      {
+                          "data": {
+                              "dtCommande" : Date.now(),
+                              "status" : "approved",
+                              "users_permissions_user" : 2
+                          }
+                      }
+                    ).then(async (res) => {
+                        const orderId = res.data.data.id
+                        console.log(cartWithPrice)
+                        const validationStack = []
+                        const error = false
+                        for (const index in cartWithPrice) {
+                            const c = cartWithPrice[index]
+                            console.log(c)
+                            validationStack.push('')
+                            axios.post(
+                              process.env.REACT_APP_BACK_URL + `/api/product-sells`,
+                              {
+                                  "data": {
+                                      "amount": c.quantity,
+                                      "price": c.price,
+                                      "commande": orderId,
+                                      "produit": c.id
+                                  }
+                              }
+                            ).then(() => validationStack.pop())
+                        }
+                        while (validationStack.length > 0 && !error) {
+                            await new Promise(r => setTimeout(r, 500))
+                            console.log("Waiting for order validation...")
+                            console.log(validationStack)
+                        }
+                        if(error){
+                            console.log("ERROR")
+                            navigate(`/?orderSuccess=failed&orderId=${orderId}`)
+                        }else{
+                            console.log("Transaction validated")
+                            navigate(`/?orderSuccess=success&orderId=${orderId}`)
+                        }
+                    })
                 }
                 else{
                     console.log("Payment raté",response)
+                    navigate("/?orderSuccess=failed")
                 }
             }
             catch (error){
