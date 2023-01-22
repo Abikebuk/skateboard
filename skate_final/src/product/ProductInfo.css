@@ -1,0 +1,36 @@
+.test {
+    background-color: #2D353C;
+}
+
+input[type=file] {
+    top: 179px;
+    left: 290px;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file-plus {
+    position: absolute;
+    width: 300px;
+    margin-left: 25px;
+    margin-top: 25px;
+    height: 100px;
+}
+
+.icon-demo {
+    width: 3em;
+    height: 3em;
+ 
+}
+
+.Image {
+    display: flex;
+    align-items: center;
+}
+
+.Image__Icon {
+    width: 15em;
+    margin-left: 25px;
+}
