@@ -16,7 +16,8 @@ export default function CartPage() {
     setCart(newCart)
   }
   function handleValidateCartClick(){
-    navigate('/payment')
+    if(window.localStorage.getItem('id') === null) navigate('/inscription')
+    else navigate('/payment')
   }
   useEffect(() =>{
     if(!loaded){

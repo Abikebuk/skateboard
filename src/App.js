@@ -21,6 +21,7 @@ import CartPage from './include/CartPage'
 import OrderConfirmed from './include/OrderConfirmed'
 import PaymentPage from './include/PaymentPage'
 import PersonalData from './include/PersonalData'
+import OrdersPage from './include/OrdersPage'
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
             <Route path={'/cart'} element={<Menus T={CartPage} />}/>
             <Route path={'/oderConfirmed'} element={<Menus T={OrderConfirmed} />}/>
             <Route path={'/payment'} element={<Menus T={PaymentPage} />}/>
+            <Route path={'/orders'} element={<Menus T={OrdersPage} />}/>
           </Routes>
         </Router>
       </div>
