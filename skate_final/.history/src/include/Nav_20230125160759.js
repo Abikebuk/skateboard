@@ -16,7 +16,7 @@ function Nav() {
             <div className="app app-sidebar-minified has-scroll ">
                 <div id="header" className="app-header app-header-inverse">
                     <div className="navbar-header">
-                            <img className='logo-pic' src='https://i.goopics.net/zcetkh.png' alt='logo' />
+                            <img src='https://i.goopics.net/zcetkh.png' />
                         <button type="button" className="navbar-mobile-toggler">
                             <span className="icon-bar"> </span>
                             <span className="icon-bar"> </span>
@@ -34,10 +34,10 @@ function Nav() {
                                     <div className="menu-profile-image"><img src="./Color Admin _ React Version_files/user-13.jpg" alt="" /></div>
                                     <div className="menu-profile-info">
                                         <div className="d-flex align-items-center">
-                                            <div className="flex-grow-1">Marc KACZOR</div>
+                                            <div className="flex-grow-1">Sean Ngu</div>
                                             <div className="menu-caret ms-auto"></div>
                                         </div>
-                                        <small>Administrateur</small>
+                                        <small>Front end developer</small>
                                     </div>
                                 </a>
                             </div>
