@@ -45,7 +45,7 @@ function Nav() {
                         <div className="menu">
                             <div className="menu-header">Navigation</div>
                             <div className="menu-item">
-                                <Link to={url.home} className="menu-link" >
+                                <Link to={url.user} className="menu-link" >
                                     <div className="menu-icon"><i className="fa fa-sitemap"></i></div>
                                     <div className="menu-text">Page d'accueil</div>
                                 </Link>

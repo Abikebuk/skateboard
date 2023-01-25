@@ -7,7 +7,6 @@ import CategorieUpdate from './categorie/CategorieUpdate'
 import Product from './product/Product'
 import Order from './order/Order'
 import OrderInfo from './order/OrderInfo'
-import Home from './home/Home'
 import Order_produt from './order/Order_produt'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
