@@ -8,15 +8,20 @@ export default function productListItem(id, productData, quantity, editable, cal
     const re = /^[0-9]*$/
     if (new RegExp(re).exec(e.target.value)) {
       console.log(e.target.value)
-      switch (parseInt(e.target.value)){
-        case '':
-          break;
-        case 0:
-          setQuantityValue(0)
-          break
-        default:
-          setQuantityValue(e.target.value)
-      }
+      if(e.target.value.length === 0) setQuantityValue(0)
+      else
+        switch (parseInt(e.target.value)){
+          case NaN:
+          case '':
+          case null:
+            setQuantityValue(0)
+            break;
+          case 0:
+            setQuantityValue(0)
+            break
+          default:
+            setQuantityValue(e.target.value)
+        }
     }
   }
 
@@ -88,10 +93,10 @@ export default function productListItem(id, productData, quantity, editable, cal
           </div>
           {
             editable ?
-            <div className={'col-auto vertical-center p-0'}>
-              <button onClick={handleDeleteClick}>Supprimer</button>
-            </div> :
-            null
+              <div className={'col-auto vertical-center p-0'}>
+                <button onClick={handleDeleteClick}>Supprimer</button>
+              </div> :
+              null
           }
 
         </div>
