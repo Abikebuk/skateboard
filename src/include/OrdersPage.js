@@ -24,7 +24,6 @@ export default function ordersPage(){
           <div className={'order-item'}>
             <div className={'order-header'} key={e.id}>
               <span>Commande numéro </span>
-              {console.log(e)}
               {`# ${e.id} : `}
               {e.attributes.statut ?? "En cours de validation"}
             </div>
