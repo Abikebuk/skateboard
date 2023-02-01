@@ -43,7 +43,7 @@ export const CheckoutForm=({price, cartWithPrice})=>{
                       {
                           "data": {
                               "dtCommande" : Date.now(),
-                              "status" : "approved",
+                              "statut" : "approved",
                               "users_permissions_user" : window.localStorage.getItem('id')
                           }
                       }
