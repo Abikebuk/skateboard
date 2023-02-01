@@ -1,0 +1,7 @@
+.grid__user__categorie {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    background-color: #2D353C;
+    padding-top: 10px;
+    place-items: center;
+}

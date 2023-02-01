@@ -1,0 +1,12 @@
+.grid__user__order__list {
+    display: grid;
+        grid-template-columns: auto auto auto auto auto;
+        background-color: #2D353C;
+        padding-top: 10px;
+        place-items: center;
+}
+
+.grid-pic {
+    width: 85px;
+    border-radius: 4px;
+}

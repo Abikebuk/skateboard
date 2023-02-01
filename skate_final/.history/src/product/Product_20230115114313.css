@@ -1,0 +1,19 @@
+.grid__user__product {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    background-color: #2D353C;
+    padding-top: 10px;
+    place-items: center;
+}
+
+.grid-description {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 150px;
+}
+
+.grid-picproduct {
+    width: 85px;
+    border-radius: 4px;
+}

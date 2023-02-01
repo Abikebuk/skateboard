@@ -1,0 +1,7 @@
+.grid__user__user {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    background-color: #2D353C;
+    padding-top: 10px;
+    place-items: center;
+}

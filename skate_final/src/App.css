@@ -1,0 +1,44 @@
+.table-responsive {
+    border: none;
+    border-radius: 4px;
+    margin-left: 290px;
+    margin-left: 290px;
+    margin-top: 70px;
+    margin-right: 70px;
+}
+
+.panel-heading {
+    padding: 0.75rem 0.9375rem;
+    border: none;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.panel-title {
+    font-size: 0.75rem;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.grid__center {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.undefined {
+    background: rgba(255, 255, 255, 0.1);
+}
