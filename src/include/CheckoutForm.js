@@ -2,6 +2,7 @@ import React from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
+import {clearCart} from "../CartHandler";
 
 export const CheckoutForm=({price, cartWithPrice})=>{
     const stripe = useStripe();
@@ -77,6 +78,7 @@ export const CheckoutForm=({price, cartWithPrice})=>{
                             navigate(`/?orderSuccess=failed&orderId=${orderId}`)
                         }else{
                             console.log("Transaction validated")
+                            clearCart();
                             navigate(`/?orderSuccess=success&orderId=${orderId}`)
                         }
                     })

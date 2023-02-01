@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom'
 import AuthenticationContext from '../AuthenticationContext'
 import * as AuthApi from '../AuthApi'
+import {clearCart} from "../CartHandler";
 
 function Header() {
   const navigate = useNavigate()
@@ -17,6 +18,7 @@ function Header() {
     window.localStorage.removeItem('username', null)
     window.localStorage.removeItem('id', null)
     context.setIsAuthenticated(false)
+    clearCart();
     navigate('/')
   }
   return (

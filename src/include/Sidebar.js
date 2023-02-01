@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from 'react'
 import * as url from './var.js'
 import './Sidebar.scss'
 import '../App.css'
+import {clearCart} from "../CartHandler";
 
 import {
   Link, useNavigate,
@@ -21,6 +22,7 @@ function Sidebar() {
     window.localStorage.removeItem('username', null)
     window.localStorage.removeItem('id', null)
     context.setIsAuthenticated(false)
+    clearCart();
     navigate('/')
   }
 
