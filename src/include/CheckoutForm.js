@@ -44,7 +44,7 @@ export const CheckoutForm=({price, cartWithPrice})=>{
                           "data": {
                               "dtCommande" : Date.now(),
                               "status" : "approved",
-                              "users_permissions_user" : 2
+                              "users_permissions_user" : window.localStorage.getItem('id')
                           }
                       }
                     ).then(async (res) => {
